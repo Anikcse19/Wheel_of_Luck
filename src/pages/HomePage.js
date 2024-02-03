@@ -180,7 +180,7 @@ const HomePage = () => {
     <div className={`${isSpin && "!cursor-not-allowed"} content-body w-full`}>
       {showInitialModal && <InitialLoading />}
       <Header />
-      <div className="block md:hidden w-[100%] mx-auto">
+      <div className="block mt-12 md:hidden w-[100%] mx-auto">
           <History/>
         </div>
       <AudioPlayer />
