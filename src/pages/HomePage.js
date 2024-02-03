@@ -103,7 +103,7 @@ const HomePage = () => {
         } else {
           setInitialWaitingTime(diff);
           setIsSpin(true);
-          setShowInitialModal(true);
+          // setShowInitialModal(true);
         }
 
         return
