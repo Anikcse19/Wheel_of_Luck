@@ -102,7 +102,7 @@ const CountDown = () => {
           duration: 20000,
 
           style: {
-            backgroundColor: "blue",
+            backgroundColor: "#FF9200",
             opacity:".3",
             color: "black",
             fontWeight:"700",
