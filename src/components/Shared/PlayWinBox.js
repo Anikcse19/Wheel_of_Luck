@@ -3,9 +3,9 @@ import React, { useContext } from "react";
 import { BetContext } from "../../ContextApi/BetContext";
 
 const playWinBox = () => {
-  const {winRatio } = useContext(BetContext);
-  const play=localStorage.getItem("totalPlay")
-  const win=localStorage.getItem("totalWin")*(winRatio/100)
+  const {winRatio,totalPlay,totalWin } = useContext(BetContext);
+  // const play=localStorage.getItem("totalPlay")
+  // const win=localStorage.getItem("totalWin")*(winRatio/100)
   
   
   return (
@@ -18,7 +18,7 @@ const playWinBox = () => {
         <span className="text-white font-bold text-[24px]"> PLAY</span>
         <div className="w-[99px] h-[34px] md:w-[158px] md:h-[55px]  rounded-[8px] border-[3px]  border-orange-500 bg-[#A67515] flex justify-center items-center">
           <span className="text-white font-extrabold text-[24px] ">
-            {localStorage.getItem("totalPlay")===null||undefined ? "0":play}
+            {totalPlay}
           </span>
         </div>
       </div>
@@ -26,7 +26,7 @@ const playWinBox = () => {
         <span className="text-white font-bold text-[24px]"> WIN</span>
         <div className="w-[99px] h-[34px] md:w-[158px] md:h-[55px]  rounded-[8px] border-[3px]  border-orange-500 bg-[#A67515] flex justify-center items-center ">
           <span className="text-white font-extrabold text-[24px]">
-          {localStorage.getItem("totalWin")===null||undefined ? "0":win}
+          {totalWin}
           </span>
         </div>
       </div>

@@ -16,8 +16,8 @@ export function BetContextProvider({ children }) {
   const [isTimerStart, setIsTimerStart] = useState(false);
   const [totalDuration, setTotalDuration] = useState(0 + 30);
   const [betAmount, setBetAmount] = useState(null);
-  const [totalPlay, setTotalPlay] = useState(localStorage.getItem("totalPlay") || 0);
-  const [totalWin, setTotalWin] = useState(localStorage.getItem("totalWin") || 0);
+  const [totalPlay, setTotalPlay] = useState(0);
+  const [totalWin, setTotalWin] = useState(0);
   const [newBalance, setNewBalance] = useState(0);
   const [userProfile, setUserProfile] = useState({
     userId: null,

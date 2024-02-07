@@ -33,32 +33,32 @@ const CustomizeAmounts = () => {
     <div>
       <div className="absolute -top-60 right-8 lg:top-0 lg:right-44 z-[100] bg-cyan-900 rounded-lg p-5 shadow-2xl w-[80%]">
         <div className="text-center">
-          <span className="text-black font-bold text-base md:text-xl lg:text-2xl">Customize Shortcut Amounts</span>
+          <span className="text-white font-bold text-base md:text-xl lg:text-2xl">Customize Shortcut Coins</span>
         </div>
 
         {/* exists points */}
         <div className="my-10 w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
           {/* points 1 */}
           <div className="w-full flex flex-col flex-wrap md:flex-nowrap items-center justify-around gap-3 mb-2">
-            <span className="text-white font-bold">P {pointsIndex[0]}</span>
+            <span className="text-white font-bold bg-black p-3 rounded-full">C {pointsIndex[0]}</span>
             <input onChange={(e)=>setPoints1(e.target.value)} defaultValue={pointsArray[0]} className="w-[70%] mb-0 text-center" />
           </div>
 
           {/* points 2 */}
           <div className="w-full flex flex-col flex-wrap md:flex-nowrap items-center justify-around gap-3 mb-2">
-            <span className="text-white font-bold">P {pointsIndex[1]}</span>
+            <span className="text-white font-bold bg-black p-3 rounded-full">C {pointsIndex[1]}</span>
             <input onChange={(e)=>setPoints2(e.target.value)} defaultValue={pointsArray[1]} className="w-[70%] mb-0 text-center" />
           </div>
 
           {/* points 3 */}
           <div className="w-full flex flex-col flex-wrap md:flex-nowrap items-center justify-around gap-3 mb-2">
-            <span className="text-white font-bold">P {pointsIndex[2]}</span>
+            <span className="text-white font-bold bg-black p-3 rounded-full">C {pointsIndex[2]}</span>
             <input onChange={(e)=>setPoints3(e.target.value)} defaultValue={pointsArray[2]} className="w-[70%] mb-0 text-center" />
           </div>
 
           {/* points 4 */}
           <div className="w-full flex flex-col flex-wrap md:flex-nowrap items-center justify-around gap-3 mb-2">
-            <span className="text-white font-bold">P {pointsIndex[3]}</span>
+            <span className="text-white font-bold bg-black p-3 rounded-full">C {pointsIndex[3]}</span>
             <input onChange={(e)=>setPoints4(e.target.value)} defaultValue={pointsArray[3]} className="w-[70%] mb-0 text-center" />
           </div>
         </div>

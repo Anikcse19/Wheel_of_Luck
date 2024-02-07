@@ -28,7 +28,7 @@ const NumberBoxs = () => {
     setError,
     selectedColorButton,setSelectedColorButton,
     sel,setSel,setTotalPlay,totalPlay,
-    isBetComplete,setIsBetComplete
+    isBetComplete,setIsBetComplete,
   } = useContext(BetContext);
 
   const [isHoverOnShade,setIsHoverOnShade]=useState(false)
@@ -69,14 +69,12 @@ const NumberBoxs = () => {
         
         //function for ajax call
         setBetButtonClicked(true);
-        bettingDone(
+        bettingDone(     
           betAmount,
           id,
           setIsBetDone,
-          setBetButtonClicked,setUserBalance,setIsBetComplete
+          setBetButtonClicked,setUserBalance,setIsBetComplete,setTotalPlay,
         );
-        setTotalPlay(Number(totalPlay)+Number(betAmount));   
-        localStorage.setItem('totalPlay',Number(totalPlay)+Number(betAmount))
       } else {
         setError(true);
       }

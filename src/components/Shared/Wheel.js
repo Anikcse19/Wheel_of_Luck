@@ -31,7 +31,7 @@ const Wheel = () => {
     setSelectedColorButton,
     setShowWinningNumberModal,
     selectedColorButton,
-    totalWin
+    totalWin,winRatio
   } = useContext(BetContext);
 
   const segments = ["0", "9", "8", "7", "6", "5", "4", "3", "2", "1"];
@@ -106,9 +106,7 @@ const Wheel = () => {
       
       if (answer!==undefined && (Number(winner) === Number(answer.id))) {
         
-        
-        setTotalWin(totalWin+Number(betAmount))
-        localStorage.setItem("totalWin",Number(totalWin)+Number(betAmount))
+
         //if get bonus
         if (bonusPoint !== null) {
           setShowBonusModal(true);

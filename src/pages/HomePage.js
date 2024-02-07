@@ -34,7 +34,7 @@ const HomePage = () => {
     setWinningNumber2,
     setSelectedColorButton,
     setIsBetDone,setWinRatio,
-    setIsTimesUp
+    setIsTimesUp,setTotalPlay,setTotalWin,winRatio
   } = useContext(BetContext);
 
 
@@ -84,6 +84,11 @@ const HomePage = () => {
       setUserBalance(res.data.balance);
       // set game win ratio
       setWinRatio(res.data.win_ratio)
+      //set total play amounts
+      setTotalPlay(res.data.total_play)
+      
+      
+      setTotalWin(res.data.total_win)
       
       if(res.data.bets.length>0){
         setShowInitialModal(false)
@@ -121,7 +126,12 @@ const HomePage = () => {
         setIsSpin(true);
         setShowInitialModal(true);
       }
-    });
+    })
+    // .catch(err=>{
+    //   console.log('error',err)
+    //   throw err
+      
+    // })
   }, []);
 
 
@@ -130,7 +140,10 @@ const HomePage = () => {
     echo
       .private(`UPDATE_USER_STATE_${window.user.id}`)
       .listen("UpdateUserStateEvent", (event) => {
+      
+        
         setUserBalance(event.balance);
+        setTotalWin(event.total_win)
       });
     //public channel subscribed
     echo.channel("GLOBAL_STATE_CHANNEL").listen("SpinEvent", (event) => {

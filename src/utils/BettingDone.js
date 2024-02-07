@@ -6,8 +6,10 @@ export default async function bettingDone(
   selectedNumber,
   setIsBetDone,
   setBetButtonClicked,
-  setUserBalance,setIsBetComplete
+  setUserBalance,setIsBetComplete,setTotalPlay
 ) {
+
+  
   const url = "https://1ten365.online/api/bet";
   const formData = new FormData();
   formData.append("amount", betAmount);
@@ -33,6 +35,8 @@ export default async function bettingDone(
         setIsBetComplete({
           value:selectedNumber,state:true
         })
+        setTotalPlay(res.data.total_play);
+        
         toast.success(`Successfully bet ${betAmount} coins for number ${selectedNumber}`, {
           position: "top-right",
           id:"bet"

@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import toast from "react-hot-toast";
 import { BiSolidError } from "react-icons/bi";
-import { CiCirclePlus } from "react-icons/ci";
+import { FaEdit } from "react-icons/fa";
 import { BetContext } from "../../ContextApi/BetContext";
 import bettingDone from "../../utils/BettingDone";
 import CustomizeAmounts from "../Modal/CustomizeAmounts";
@@ -139,12 +139,13 @@ const BettingPoint = () => {
                 onDrop={handleDrop}
                 onClick={handleAmountClick}
                 className="w-[75px] h-[75px]  xl:w-[125px] xl:h-[125px] rounded-full border-2 border-dashed border-white flex justify-center items-center ">
-                <div className="w-[65px] h-[65px] xl:w-[110px] xl:h-[110px] bg-white rounded-full border border-black flex justify-center items-center hover:bg-gray-200">
+                <div className="w-[65px] h-[65px] xl:w-[110px] xl:h-[110px] bg-white rounded-full border border-black flex flex-col gap-2 justify-center items-center hover:bg-gray-200">
                   <div
                     id="bet-point"
                     className="bet-point text-base text-black lg:text-2xl">
                     {point}
                   </div>
+                  <span onClick={()=>setShowCustomizeAmountsModal(true)} className="text-orange-900"><FaEdit/></span>
                 </div>
               </div>
             </div>
@@ -155,13 +156,13 @@ const BettingPoint = () => {
             }}
               // key={index}
               className="w-[88px] h-[88px] xl:w-[150px]  xl:h-[150px] bg-[#fc1212] rounded-full  border border-black  flex justify-center items-center cursor-pointer "> */}
-                <div onClick={()=>setShowCustomizeAmountsModal(true)} title="Customize Bet Amounts" className="w-[65px] h-[65px] xl:w-[110px] xl:h-[110px] bg-white opacity-70 rounded-full border border-black flex justify-center items-center hover:bg-gray-200 cursor-pointer">
+                {/* <div onClick={()=>setShowCustomizeAmountsModal(true)} title="Customize Bet Amounts" className="w-[65px] h-[65px] xl:w-[110px] xl:h-[110px] bg-white opacity-70 rounded-full border border-black flex justify-center items-center hover:bg-gray-200 cursor-pointer">
                   <div
                     id="bet-point"
                     className="bet-point text-lg md:text-3xl lg:text-6xl text-black ">
-                    <CiCirclePlus/>
+                    Edit
                   </div>
-                </div>
+                </div> */}
               {/* </div> */}
             {/* </div> */}
 
