@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import toast from "react-hot-toast";
 import { FaCoins } from "react-icons/fa";
 import { TiPin } from "react-icons/ti";
-import { FadeLoader, RingLoader } from "react-spinners";
+import { ClockLoader, RingLoader } from "react-spinners";
 import { BetContext } from "../../ContextApi/BetContext";
 import bettingDone from "../../utils/BettingDone";
 
@@ -160,8 +160,8 @@ const NumberBoxs = () => {
           >
             {isBetComplete.value === index && isBetComplete.status ? (
               <div className="w-[80%] flex items-center justify-center">
-                <FadeLoader className="w-3 "
-              color="#000000"
+                <ClockLoader className="w-3 "
+              color="#ffffff"
               height={10}
               radius={3}
               width={3}

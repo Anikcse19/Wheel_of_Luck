@@ -69,7 +69,7 @@ const Wheel = () => {
 
 
   const onFinished = async (winner) => {
-    setSelectedColorButton([])
+    
     setWinningNumber2(winner);
     setShowWinningNumberModal(true);
     setDraggedItem("");
@@ -124,6 +124,7 @@ const Wheel = () => {
         setTimeout(() => {
           setShowModal(false);
         }, 3000);
+        setSelectedColorButton([])
       } else {
         localStorage.removeItem("selectedNumber");
         setIsSelected({ id: null, value: false });
@@ -133,6 +134,7 @@ const Wheel = () => {
         setTimeout(() => {
           setShowModal(false);
         }, 3000);
+        setSelectedColorButton([])
        
       }
     } else {

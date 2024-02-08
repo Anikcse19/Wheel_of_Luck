@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { BetContext } from "../../ContextApi/BetContext";
 
 const WinModal = () => {
-  const { setGameWin, newBalance } = useContext(BetContext);
+  const { setGameWin, newBalance ,winningNumber2} = useContext(BetContext);
 
   // useEffect(() => {
   //   const audio = new Audio(coinWInSound);
@@ -13,7 +13,7 @@ const WinModal = () => {
       <div
         style={{ boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px" }}
         className="bg-green-600 text-white text-2xl px-24 py-8 rounded">
-        Congrats!!! You Win
+        Congrats!!! You Win for Number <span className="text-emerald-900 font-bold text-4xl">{winningNumber2}</span>
         <div
           onClick={() => {
             setGameWin(false);

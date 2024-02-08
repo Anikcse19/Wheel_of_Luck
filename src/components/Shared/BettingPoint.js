@@ -141,25 +141,25 @@ const BettingPoint = () => {
               boxShadow: "rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px"
             }}
               
-              className="w-[88px] h-[88px] xl:w-[150px]  xl:h-[150px] bg-[#fc1212] rounded-full  border border-black  flex justify-center items-center cursor-pointer ">
+              className="w-[88px] h-[88px] xl:w-[150px]  xl:h-[150px] bg-purple-300 rounded-full  border border-black  flex justify-center items-center cursor-pointer ">
               <div
                 draggable={true}
                 onDragStart={handleDragStart}
                 onDragOver={handleDragOver}
                 onDrop={handleDrop}
                 onClick={handleAmountClick}
-                className="w-[75px] h-[75px]  xl:w-[125px] xl:h-[125px] rounded-full border-2 border-dashed border-white flex justify-center items-center ">
-                <div className="w-[65px] h-[65px] xl:w-[110px] xl:h-[110px] bg-white rounded-full border border-black flex flex-col gap-2 justify-center items-center hover:bg-gray-200">
+                className="w-[75px] h-[75px]  xl:w-[125px] xl:h-[125px] rounded-full border-2 border-dashed border-purple-900 flex justify-center items-center ">
+                <div className="w-[65px] h-[65px] xl:w-[110px] xl:h-[110px] bg-purple-400 rounded-full border border-black flex flex-col gap-2 justify-center items-center hover:bg-purple-500">
                   <div
                     id="bet-point"
-                    className="bet-point text-base text-black lg:text-2xl">
+                    className="bet-point text-base font-bold text-black lg:text-2xl">
                     {point}
                   </div>
                 </div>
               </div>
             </div>
 
-            <span onClick={()=>setShowCustomizeAmountsModal(true)} className="text-white cursor-pointer flex justify-center items-center bg-black p-3 rounded-full"><FaEdit/></span>
+            <span onClick={()=>setShowCustomizeAmountsModal(true)} className="text-white cursor-pointer flex justify-center items-center bg-slate-700 p-3 rounded-full"><FaEdit/></span>
             </div>
           ))}
           

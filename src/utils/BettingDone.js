@@ -37,13 +37,12 @@ export default async function bettingDone(
         setIsBetComplete({value:null,status:false})
         toast.success(`Successfully bet ${betAmount} coins for number ${selectedNumber}`, {
           id:"bet succesfull",
-          duration:"800",
           position: "top-right",
           
         });
       }
     });
   } catch (error) {
-    
+    console.log(error)
   }
 }
