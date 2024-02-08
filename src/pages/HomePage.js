@@ -95,7 +95,7 @@ const HomePage = () => {
         // setIsSpin(true)
         // setIsTimerStart(false)
         res.data.bets.map(bet=>{
-          setSelectedColorButton((prev)=>[...prev,{id:bet.number,value:true}])
+          setSelectedColorButton((prev)=>[...prev,{id:bet.number,value:true, bet:bet.amount}])
         })
 
         setIsBetDone(true)

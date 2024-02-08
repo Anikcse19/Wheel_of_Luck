@@ -32,14 +32,14 @@ export default async function bettingDone(
         setIsBetDone(true);
         setBetButtonClicked(false);
         setUserBalance(res.data.current_balance)
-        setIsBetComplete({
-          value:selectedNumber,state:true
-        })
-        setTotalPlay(res.data.total_play);
         
+        setTotalPlay(res.data.total_play);
+        setIsBetComplete({value:null,status:false})
         toast.success(`Successfully bet ${betAmount} coins for number ${selectedNumber}`, {
+          id:"bet succesfull",
+          duration:"800",
           position: "top-right",
-          id:"bet"
+          
         });
       }
     });

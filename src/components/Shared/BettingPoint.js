@@ -74,7 +74,7 @@ const BettingPoint = () => {
   };
 
   const handleAmountClick = (event) => {
-    if (!isSpin) {
+    if (!isSpin && isBetAble) {
       // playSound();
       const clickedDiv = event.currentTarget;
       const clickedPoint = clickedDiv.querySelector(".bet-point").innerText;
@@ -89,7 +89,14 @@ const BettingPoint = () => {
         })
       } else {
         setError(true);
+        toast.error("unsufficient Balance",
+       { id:"unsufficient",duration:1000,position:"bottom-right"})
       }
+    }else{
+      toast.error('Unable to select money.Please Wait',{
+        id:'unable select',
+        position:"bottom-right"
+      })
     }
   };
 
@@ -97,6 +104,7 @@ const BettingPoint = () => {
 
     if(error){
       setDraggedItem("")
+      
     }
     if (
       betAmount > 0 &&
@@ -126,11 +134,13 @@ const BettingPoint = () => {
       <div className="flex flex-col lg:w-[400px] xl:w-[702px]  gap-5">
         <div className="w-[100%]  justify-center flex flex-wrap items-center gap-5 relative">
           {betPoints.map((point, index) => (
-            <div
+            <div key={index} className="flex flex-col gap-3 items-center">
+
+<div
             style={{
               boxShadow: "rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px"
             }}
-              key={index}
+              
               className="w-[88px] h-[88px] xl:w-[150px]  xl:h-[150px] bg-[#fc1212] rounded-full  border border-black  flex justify-center items-center cursor-pointer ">
               <div
                 draggable={true}
@@ -145,11 +155,15 @@ const BettingPoint = () => {
                     className="bet-point text-base text-black lg:text-2xl">
                     {point}
                   </div>
-                  <span onClick={()=>setShowCustomizeAmountsModal(true)} className="text-orange-900"><FaEdit/></span>
                 </div>
               </div>
             </div>
+
+            <span onClick={()=>setShowCustomizeAmountsModal(true)} className="text-white cursor-pointer flex justify-center items-center bg-black p-3 rounded-full"><FaEdit/></span>
+            </div>
           ))}
+          
+          
            {/* <div
             style={{
               boxShadow: "rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px"
@@ -226,8 +240,8 @@ const BettingPoint = () => {
             />
             {error && (
               <div className="absolute top-8 md:top-24 -left-2 md:left-0 flex  items-center gap-3 font-bold md:font-extrabold shadow-2xl px-3 py-1 my-2 rounded-md w-[150px] md:w-full">
-                <BiSolidError className="text-red-600 text-[10px] md:text-3xl"/>
-                <p  style={{ textShadow: "#FC0 1px 0 10px" }} className="text-red-600 text-[10px] md:text-[22px]">Unsufficient Balance!!</p>
+                <BiSolidError className="text-red-900 text-[10px] md:text-3xl"/>
+                <p  style={{ textShadow: "#FC0 1px 0 10px" }} className="text-red-900 text-[10px] md:text-[22px]">Unsufficient Balance!!</p>
               </div>
             )}
           </div>

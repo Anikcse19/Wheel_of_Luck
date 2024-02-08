@@ -1,7 +1,8 @@
 import React, { useContext, useState } from "react";
 import toast from "react-hot-toast";
+import { FaCoins } from "react-icons/fa";
 import { TiPin } from "react-icons/ti";
-import { RingLoader } from "react-spinners";
+import { FadeLoader, RingLoader } from "react-spinners";
 import { BetContext } from "../../ContextApi/BetContext";
 import bettingDone from "../../utils/BettingDone";
 
@@ -26,16 +27,20 @@ const NumberBoxs = () => {
     setUserBalance,
     error,
     setError,
-    selectedColorButton,setSelectedColorButton,
-    sel,setSel,setTotalPlay,totalPlay,
-    isBetComplete,setIsBetComplete,
+    selectedColorButton,
+    setSelectedColorButton,
+    sel,
+    setSel,
+    setTotalPlay,
+    totalPlay,
+    isBetComplete,
+    setIsBetComplete,
   } = useContext(BetContext);
 
-  const [isHoverOnShade,setIsHoverOnShade]=useState(false)
-
+  const [isHoverOnShade, setIsHoverOnShade] = useState(false);
 
   const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-  
+
   const colors = [
     "#E100E2",
     "#40038D",
@@ -49,31 +54,24 @@ const NumberBoxs = () => {
     "#4250E9",
   ];
 
-  
-
   const handlePlaceBet = (id) => {
-    if(error){
-      setDraggedItem("")
-    } 
-    if (
-      betAmount > 0 &&
-      id !== null &&
-      id >= 0 &&
-      isBetAble
-    ) {    
-      setIsBetComplete({
-        value:null,state:false
-      })
+    if (error) {
+      setDraggedItem("");
+    }
+    if (betAmount > 0 && id !== null && id >= 0 && isBetAble) {
       if (userBalance >= betAmount) {
         setError(false);
-        
+
         //function for ajax call
         setBetButtonClicked(true);
-        bettingDone(     
+        bettingDone(
           betAmount,
           id,
           setIsBetDone,
-          setBetButtonClicked,setUserBalance,setIsBetComplete,setTotalPlay,
+          setBetButtonClicked,
+          setUserBalance,
+          setIsBetComplete,
+          setTotalPlay
         );
       } else {
         setError(true);
@@ -81,13 +79,26 @@ const NumberBoxs = () => {
     }
   };
 
+  console.log("select", selectedColorButton);
+
+  const abc = selectedColorButton.find((btn) => {
+    return btn.id === 2;
+  });
+
+  console.log("com", isBetComplete);
+
   return (
     <div className="relative w-full h-full p-5 grid grid-cols-5 gap-2 md:gap-3 xl:gap-5 ">
       {isTimesUp && !showInitialModal && (
-        <div onMouseEnter={()=>setIsHoverOnShade(true)} onMouseLeave={()=>setIsHoverOnShade(false)} className={`${isHoverOnShade && "bg-black"} opacity-[.7] w-full h-full py-4 rounded-md flex justify-center items-center absolute  overflow-hidden z-[10000]`}>
-          {
-            isHoverOnShade && (
-              <div className=" my-2 px-3 py-2 lg:px-12 lg:py-6 xl:px-24 xl:py-12 flex flex-col justify-center items-center ">
+        <div
+          onMouseEnter={() => setIsHoverOnShade(true)}
+          onMouseLeave={() => setIsHoverOnShade(false)}
+          className={`${
+            isHoverOnShade && "bg-black"
+          } opacity-[.7] w-full h-full py-4 rounded-md flex justify-center items-center absolute  overflow-hidden z-[10000]`}
+        >
+          {isHoverOnShade && (
+            <div className=" my-2 px-3 py-2 lg:px-12 lg:py-6 xl:px-24 xl:py-12 flex flex-col justify-center items-center ">
               <span className="md:font-bold text-white">
                 <span className="text-base md:text-2xl font-extrabold block text-center text-white">
                   {isBetDone ? "Bet Placed Successfully" : "Time Out!!!"}
@@ -100,71 +111,107 @@ const NumberBoxs = () => {
                 className="md:font-extrabold text-sm md:text-xl"
                 color="black"
               />
-            </div> 
-            )
-          }
-          
+            </div>
+          )}
         </div>
       )}
       {numbers.map((number, index) => (
         <div key={index} className="flex justify-center items-center ">
           <div
             onClick={() => {
-              if(draggedItem===""){
-                toast.error("Select Amount first",{
-                  id:'anikkkk'
-                })
-                
-              }
-              else{
-                if (!isSpin  && isBetAble) {
-                  setIsBetDone(false)
-                  setSelectedColorButton((prev)=>[...prev,{id:index,value:true}])
-                  setIsSelected({ id: index, value: true })
-                  setSel((prev)=>[...prev,index])
-                  setTimeout(()=>{
+              if (draggedItem === "") {
+                toast.error("Select Amount first", {
+                  id: "anikkkk",
+                });
+              } else {
+                if (!isSpin && isBetAble) {
+                  setIsBetComplete({ value: index, status: true });
+                  setIsBetDone(false);
+                  setSelectedColorButton((prev) => [
+                    ...prev,
+                    { id: index, value: true, bet: draggedItem },
+                  ]);
+                  setIsSelected({ id: index, value: true });
+                  setSel((prev) => [...prev, index]);
+                  setTimeout(() => {
                     localStorage.setItem("selectedNumber", sel);
-                  },200)                  
-                  handlePlaceBet(index)                 
+                  }, 200);
+                  handlePlaceBet(index);
                   numberPicked.current = true;
                 }
-                
               }
             }}
             style={{
-              backgroundColor:
-              selectedColorButton.find(btn=>{
-               return btn.id===index && btn.value
+              backgroundColor: selectedColorButton.find((btn) => {
+                return btn.id === index && btn.value;
               })
-                  ? `${colors[index]}`
-                  : "#fc1212",
-                boxShadow: "rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset"
+                ? `${colors[index]}`
+                : "#fc1212",
+              boxShadow:
+                "rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset",
             }}
             className={
-              selectedColorButton.find(btn=>{
-                return btn.id===index && btn.value
-               })
-                ? `w-10 h-10 md:w-[175px] md:h-[75px] xl:w-[111.905px] xl:h-[102.313px] rounded-[5px] border-1 border-black  text-center flex justify-center items-center  mr-0 cursor-pointer transition-all duration-300 shadow-2xl relative`
-                : "w-10 h-10 md:w-[175px] md:h-[75px] lg:w-[111.905px] lg:h-[102.313px]  rounded-[5px] border-1 border-black  text-center flex justify-center items-center  mr-0 cursor-pointer relative "
-            }>
+              selectedColorButton.find((btn) => {
+                return btn.id === index && btn.value;
+              })
+                ? `w-16 h-16 md:w-[175px] md:h-[75px] xl:w-[111.905px] xl:h-[102.313px] rounded-[5px] border-1 border-black  text-center flex justify-center items-center  mr-0 cursor-pointer transition-all duration-300 shadow-2xl relative`
+                : "w-16 h-16 md:w-[175px] md:h-[75px] lg:w-[111.905px] lg:h-[102.313px]  rounded-[5px] border-1 border-black  text-center flex justify-center items-center  mr-0 cursor-pointer relative "
+            }
+          >
+            {isBetComplete.value === index && isBetComplete.status ? (
+              <div className="w-[80%] flex items-center justify-center">
+                <FadeLoader className="w-3 "
+              color="#000000"
+              height={10}
+              radius={3}
+              width={3}
+            />
+              </div>
+            ):(
+<div>
             <span
               style={{ textShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)" }}
               className={
-                selectedColorButton.find(btn=>{
-                  return btn.id===index && btn.value
-                 })
+                selectedColorButton.find((btn) => {
+                  return btn.id === index && btn.value;
+                })
                   ? "text-[32px] md:text-[40px] w-[20px] h-[39px] md:w-[32px] md:h-[57px] font-[700] text-black md:mt-5"
                   : "text-[32px] md:text-[40px] w-[20px] h-[39px] md:w-[32px] md:h-[57px] font-[700] text-[#fff]  "
-              }>
+              }
+            >
               {number}
             </span>
-           {
-            selectedColorButton.find(btn=>{
-              return btn.id===index && btn.value
-            }) &&  <div className="absolute -top-3 -right-2 lg:-top-6 lg:-right-5 text-xl md:text-2xl lg:text-5xl text-black font-extrabold">
-            <TiPin/>
-          </div>
-           }
+            {selectedColorButton.find((btn) => {
+              return btn.id === index && btn.value;
+            }) && (
+              <div className="absolute -top-3 -right-2 lg:-top-6 lg:-right-5 text-xl md:text-2xl lg:text-5xl text-black font-extrabold">
+                <TiPin />
+              </div>
+            )}
+
+            {selectedColorButton.find((btn) => {
+              return btn.id === index && btn.value;
+            }) && (
+              <div
+                style={{
+                  boxShadow:
+                    " rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset",
+                }}
+                className="absolute flex  items-center gap-1 bg-rose-700 shadow-2xl w-8 h-8 md:w-10 md:h-10 md:p-1 -bottom-1 -right-1 lg:-bottom-3 lg:-right-3 text-white text-[8px] md:text-[10px] font-bold rounded-full "
+              >
+                <FaCoins className="text-orange-400" />
+                <span>
+                  {
+                    selectedColorButton.find((btn) => {
+                      return btn.id === index && btn.value;
+                    }).bet
+                  }
+                </span>
+              </div>
+            )}
+            </div>
+            )}
+            
           </div>
         </div>
       ))}

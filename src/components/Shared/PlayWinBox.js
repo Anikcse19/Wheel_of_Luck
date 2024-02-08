@@ -17,7 +17,7 @@ const playWinBox = () => {
       <div className="flex flex-col items-center">
         <span className="text-white font-bold text-[24px]"> PLAY</span>
         <div className="w-[99px] h-[34px] md:w-[158px] md:h-[55px]  rounded-[8px] border-[3px]  border-orange-500 bg-[#A67515] flex justify-center items-center">
-          <span className="text-white font-extrabold text-[24px] ">
+          <span className="text-white font-extrabold text-[14px] md:text-[24px] ">
             {totalPlay}
           </span>
         </div>
@@ -25,7 +25,7 @@ const playWinBox = () => {
       <div className="flex flex-col items-center">
         <span className="text-white font-bold text-[24px]"> WIN</span>
         <div className="w-[99px] h-[34px] md:w-[158px] md:h-[55px]  rounded-[8px] border-[3px]  border-orange-500 bg-[#A67515] flex justify-center items-center ">
-          <span className="text-white font-extrabold text-[24px]">
+          <span className="text-white font-extrabold text-[14px] md:text-[24px]">
           {totalWin}
           </span>
         </div>
