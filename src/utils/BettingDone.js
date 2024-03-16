@@ -11,10 +11,10 @@ export default async function bettingDone(
 
   
   const url = "https://1ten365.online/api/bet";
-  const formData = new FormData();
+  const formData = new FormData(); 
   formData.append("amount", betAmount);
   formData.append("number", selectedNumber);
-
+  
   const token = localStorage.getItem("token");
   // Ajax call fot betting
   try {

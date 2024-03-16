@@ -79,13 +79,11 @@ const NumberBoxs = () => {
     }
   };
 
-  console.log("select", selectedColorButton);
 
   const abc = selectedColorButton.find((btn) => {
     return btn.id === 2;
   });
 
-  console.log("com", isBetComplete);
 
   return (
     <div className="relative w-full h-full p-5 grid grid-cols-5 gap-2 md:gap-3 xl:gap-5 ">
