@@ -82,6 +82,7 @@ const Wheel = () => {
     setRandomLuckyNumber(getRandomNumber(0, 9));
     setIsTimesUp(false);
     stopSpinner.current = false;
+    setSelectedColorButton([])
 
     let selectedNumber = localStorage.getItem("selectedNumber");
 

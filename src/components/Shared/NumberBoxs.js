@@ -85,6 +85,10 @@ const NumberBoxs = () => {
   });
 
 
+  console.log('color',selectedColorButton);
+  
+
+
   return (
     <div className="relative w-full h-full p-5 grid grid-cols-5 gap-2 md:gap-3 xl:gap-5 ">
       {isTimesUp && !showInitialModal && (
