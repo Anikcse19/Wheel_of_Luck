@@ -7,7 +7,7 @@ import echo from "../utils/socket";
 // import globalStateUpdate from "../utils/GlobalStateUpdate";
 
 import axios from "axios";
-import { Toaster } from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 import InitialLoading from "../components/Modal/InitialLoadingModal";
 import History from "../components/Shared/History";
 import AudioPlayer from "../components/Shared/MusicPlayer";
@@ -33,11 +33,13 @@ const HomePage = () => {
     setInitialWaitingTime,
     setWinningNumber2,
     setSelectedColorButton,
-    setIsBetDone,setWinRatio,
-    setIsTimesUp,setTotalPlay,setTotalWin,winRatio
+    setIsBetDone,
+    setWinRatio,
+    setIsTimesUp,
+    setTotalPlay,
+    setTotalWin,
+    winRatio,
   } = useContext(BetContext);
-
-
 
   let screenSize;
   if (window.innerWidth < 1024) {
@@ -48,9 +50,6 @@ const HomePage = () => {
 
   const url = "https://1ten365.online/init-render-data";
 
-  
-  
-  
   useEffect(() => {
     const presentTime = new Date();
     const minutes = presentTime.getMinutes();
@@ -59,47 +58,62 @@ const HomePage = () => {
 
     setHistory(window.initialBettingHistory);
     setCurrentTime(window.initialBettingTime);
-    axios({
-      url: url,
-      method: "POST",
-      headers: {
-        Accept: "Application/json",
-        "X-Requested-With": "XMLHttpRequest",
-        Authorization: `Bearer ${window.TOKEN}`,
-      },
-    }).then((res) => {
+    try {
+      axios({
+        url: url,
+        method: "POST",
+        headers: {
+          Accept: "Application/json",
+          "X-Requested-With": "XMLHttpRequest",
+          Authorization: `Bearer ${window.TOKEN}`,
+        },
+      }).then((res) => {
+        setTimeout(() => {
+          setMusicStart(true);
+        }, 500);
 
-      setTimeout(() => {
-        setMusicStart(true);
-      }, 500);
+        const nTime = new Date(res?.data?.nextEventAt);
+        const minutes = nTime.getMinutes();
+        const seconds = nTime.getSeconds();
+        const q = minutes * 60 + seconds;
+        const diff = q - p;
 
-         
-      const nTime = new Date(res.data.nextEventAt);
-      const minutes = nTime.getMinutes();
-      const seconds = nTime.getSeconds();
-      const q = minutes * 60 + seconds;     
-      const diff = q - p;
-      
-      //set user balance
-      setUserBalance(res.data.balance);
-      // set game win ratio
-      setWinRatio(res.data.win_ratio)
-      //set total play amounts
-      setTotalPlay(res.data.total_play)
-      
-      
-      setTotalWin(res.data.total_win)
-      
-      if(res.data.bets.length>0){
-        setShowInitialModal(false)
-        // setIsSpin(true)
-        // setIsTimerStart(false)
-        res.data.bets.map(bet=>{
-          setSelectedColorButton((prev)=>[...prev,{id:bet.number,value:true, bet:bet.amount}])
-        })
+        //set user balance
+        setUserBalance(res?.data?.balance);
+        // set game win ratio
+        setWinRatio(res?.data?.win_ratio);
+        //set total play amounts
+        setTotalPlay(res?.data?.total_play);
 
-        setIsBetDone(true)
-        setIsTimesUp(true)
+        setTotalWin(res?.data?.total_win);
+
+        if (res?.data?.bets?.length > 0) {
+          setShowInitialModal(false);
+          // setIsSpin(true)
+          // setIsTimerStart(false)
+          res?.data?.bets?.map((bet) => {
+            setSelectedColorButton((prev) => [
+              ...prev,
+              { id: bet.number, value: true, bet: bet.amount },
+            ]);
+          });
+
+          setIsBetDone(true);
+          setIsTimesUp(true);
+          if (diff >= 20) {
+            setIsSpin(false);
+            setIsTimerStart(true);
+            setTotalDuration(10);
+            setIsBetAble(true);
+          } else {
+            setInitialWaitingTime(diff);
+            setIsSpin(true);
+            // setShowInitialModal(true);
+          }
+
+          return;
+        }
+
         if (diff >= 20) {
           setIsSpin(false);
           setIsTimerStart(true);
@@ -108,42 +122,23 @@ const HomePage = () => {
         } else {
           setInitialWaitingTime(diff);
           setIsSpin(true);
-          // setShowInitialModal(true);
+          setShowInitialModal(true);
         }
-
-        return
-      }
-    
-  
-
-      if (diff >= 20) {
-        setIsSpin(false);
-        setIsTimerStart(true);
-        setTotalDuration(10);
-        setIsBetAble(true);
-      } else {
-        setInitialWaitingTime(diff);
-        setIsSpin(true);
-        setShowInitialModal(true);
-      }
-    })
-    // .catch(err=>{
-    //   console.log('error',err)
-    //   throw err
-      
-    // })
+      });
+    } catch (error) {
+      toast.error(`${error}`, {
+        position: "top-right",
+      });
+    }
   }, []);
 
-
-
   useEffect(() => {
+    // private channel subscribed
     echo
       .private(`UPDATE_USER_STATE_${window.user.id}`)
       .listen("UpdateUserStateEvent", (event) => {
-      
-        
         setUserBalance(event.balance);
-        setTotalWin(event.total_win)
+        setTotalWin(event.total_win);
       });
     //public channel subscribed
     echo.channel("GLOBAL_STATE_CHANNEL").listen("SpinEvent", (event) => {
@@ -185,21 +180,20 @@ const HomePage = () => {
         });
         setCurrentTime(tempCurrentTime.reverse());
       }
-      
     });
   }, []);
 
   return (
-    <div className={`${isSpin && "!cursor-not-allowed"} content-body w-full`}>
-      {showInitialModal && <InitialLoading />}
+    <div className={`${isSpin && "!cursor-not-allowed"}  relative content-body w-full  ${showInitialModal ? "h-screen md:h-fit overflow-hidden":"h-fit"} flex flex-col justify-center items-center`}>
+      {showInitialModal && <div className="w-full h-screen fixed 2xl:absolute  z-[1000] md:top-0 "> <InitialLoading /></div>}
       <Header />
       <div className="block mt-12 md:hidden w-[100%] mx-auto">
-          <History/>
-        </div>
+        <History />
+      </div>
       <AudioPlayer />
       <Home />
       <HomeLowerPart />
-      <Toaster />     
+      <Toaster />
     </div>
   );
 };

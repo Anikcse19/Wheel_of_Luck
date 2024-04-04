@@ -6,7 +6,7 @@ export default async function bettingDone(
   selectedNumber,
   setIsBetDone,
   setBetButtonClicked,
-  setUserBalance,setIsBetComplete,setTotalPlay
+  setUserBalance,setIsBetComplete,setTotalPlay,setError,userBalance,setSelectedColorButton
 ) {
 
   
@@ -40,9 +40,22 @@ export default async function bettingDone(
           position: "top-right",
           
         });
+      }else{
+        
+        
+        setUserBalance(res.data.current_balance ? res.data.current_balance : userBalance)
+        setBetButtonClicked(false);
+        setIsBetComplete({value:null,status:false})
+       
+        setSelectedColorButton([])
+        toast.error(`${res?.data?.error}`,{
+          position:'top-right'
+        })
       }
     });
   } catch (error) {
-    console.log(error)
+   toast.error(`${error}`,{
+    position:'top-right'
+   })
   }
 }

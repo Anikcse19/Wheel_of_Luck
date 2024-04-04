@@ -39,7 +39,7 @@ export function BetContextProvider({ children }) {
   const [bonusPoint, setBonusPoint] = useState(null);
   const [currentScreenSize, setCurrentScreenSize] = useState(0);
   const [isDataFetch, setIsDataFetch] = useState(false);
-  const [showInitialModal, setShowInitialModal] = useState(false);
+  const [showInitialModal, setShowInitialModal] = useState(true);
   const [betButtonCliked, setBetButtonClicked] = useState(false);
   const [error, setError] = useState(false);
   const [initialWaitingTime, setInitialWaitingTime] = useState(0);

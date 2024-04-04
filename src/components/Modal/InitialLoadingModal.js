@@ -20,7 +20,7 @@ const InitialLoadingModal = () => {
     return () => clearInterval(timerInterval);
   }, [initialWaitingTime, setInitialWaitingTime]);
   return (
-    <div className="max-w-[1440px] w-full h-screen cursor-not-allowed bg-black opacity-70 z-40 fixed flex justify-center items-center px-4">
+    <div className="max-w-[1440px] w-full h-full cursor-not-allowed bg-black opacity-70 z-40  flex flex-col grow justify-center items-center px-4 ">
       <div className="bg-white  px-24 py-24 text-center rounded-lg z-50 flex flex-col items-center justify-center gap-3">
         <span className="text-lg md:text-2xl font-extrabold text-black">
           Currently you are unable to bet. <br /> Please wait{" "}

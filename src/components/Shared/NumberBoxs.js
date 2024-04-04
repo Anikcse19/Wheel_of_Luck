@@ -71,7 +71,8 @@ const NumberBoxs = () => {
           setBetButtonClicked,
           setUserBalance,
           setIsBetComplete,
-          setTotalPlay
+          setTotalPlay,
+          setError,userBalance,setSelectedColorButton
         );
       } else {
         setError(true);
@@ -79,15 +80,9 @@ const NumberBoxs = () => {
     }
   };
 
-
   const abc = selectedColorButton.find((btn) => {
     return btn.id === 2;
   });
-
-
-  console.log('color',selectedColorButton);
-  
-
 
   return (
     <div className="relative w-full h-full p-5 grid grid-cols-5 gap-2 md:gap-3 xl:gap-5 ">
@@ -162,58 +157,58 @@ const NumberBoxs = () => {
           >
             {isBetComplete.value === index && isBetComplete.status ? (
               <div className="w-[80%] flex items-center justify-center">
-                <ClockLoader className="w-3 "
-              color="#ffffff"
-              height={10}
-              radius={3}
-              width={3}
-            />
+                <ClockLoader
+                  className="w-3 "
+                  color="#ffffff"
+                  height={10}
+                  radius={3}
+                  width={3}
+                />
               </div>
-            ):(
-<div>
-            <span
-              style={{ textShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)" }}
-              className={
-                selectedColorButton.find((btn) => {
-                  return btn.id === index && btn.value;
-                })
-                  ? "text-[32px] md:text-[40px] w-[20px] h-[39px] md:w-[32px] md:h-[57px] font-[700] text-black md:mt-5"
-                  : "text-[32px] md:text-[40px] w-[20px] h-[39px] md:w-[32px] md:h-[57px] font-[700] text-[#fff]  "
-              }
-            >
-              {number}
-            </span>
-            {selectedColorButton.find((btn) => {
-              return btn.id === index && btn.value;
-            }) && (
-              <div className="absolute -top-3 -right-2 lg:-top-6 lg:-right-5 text-xl md:text-2xl lg:text-5xl text-black font-extrabold">
-                <TiPin />
-              </div>
-            )}
-
-            {selectedColorButton.find((btn) => {
-              return btn.id === index && btn.value;
-            }) && (
-              <div
-                style={{
-                  boxShadow:
-                    " rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset",
-                }}
-                className="absolute flex  items-center gap-1 bg-rose-700 shadow-2xl w-8 h-8 md:w-10 md:h-10 md:p-1 -bottom-1 -right-1 lg:-bottom-3 lg:-right-3 text-white text-[8px] md:text-[10px] font-bold rounded-full "
-              >
-                <FaCoins className="text-orange-400" />
-                <span>
-                  {
+            ) : (
+              <div>
+                <span
+                  style={{ textShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)" }}
+                  className={
                     selectedColorButton.find((btn) => {
                       return btn.id === index && btn.value;
-                    }).bet
+                    })
+                      ? "text-[32px] md:text-[40px] w-[20px] h-[39px] md:w-[32px] md:h-[57px] font-[700] text-black md:mt-5"
+                      : "text-[32px] md:text-[40px] w-[20px] h-[39px] md:w-[32px] md:h-[57px] font-[700] text-[#fff]  "
                   }
+                >
+                  {number}
                 </span>
+                {selectedColorButton.find((btn) => {
+                  return btn.id === index && btn.value;
+                }) && (
+                  <div className="absolute -top-3 -right-2 lg:-top-6 lg:-right-5 text-xl md:text-2xl lg:text-5xl text-black font-extrabold">
+                    <TiPin />
+                  </div>
+                )}
+
+                {selectedColorButton.find((btn) => {
+                  return btn.id === index && btn.value;
+                }) && (
+                  <div
+                    style={{
+                      boxShadow:
+                        " rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset",
+                    }}
+                    className="absolute flex  items-center gap-1 bg-rose-700 shadow-2xl w-8 h-8 md:w-10 md:h-10 md:p-1 -bottom-1 -right-1 lg:-bottom-3 lg:-right-3 text-white text-[8px] md:text-[10px] font-bold rounded-full "
+                  >
+                    <FaCoins className="text-orange-400" />
+                    <span>
+                      {
+                        selectedColorButton.find((btn) => {
+                          return btn.id === index && btn.value;
+                        }).bet
+                      }
+                    </span>
+                  </div>
+                )}
               </div>
             )}
-            </div>
-            )}
-            
           </div>
         </div>
       ))}

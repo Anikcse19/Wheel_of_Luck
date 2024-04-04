@@ -1,10 +1,20 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
+import { IoMdRefresh } from "react-icons/io";
+
+import axios from "axios";
+import toast from "react-hot-toast";
+import { ColorRing } from "react-loader-spinner";
 import { BetContext } from "../../ContextApi/BetContext";
 import CountDown from "./CountDown";
 import History from "./History";
 
+
+const url = "https://1ten365.online/api/check-balance";
+const token=localStorage.getItem('token')
+
 const Header = () => {
-  const { userBalance } = useContext(BetContext);
+  const { userBalance,setUserBalance } = useContext(BetContext);
+  const [isLoading,setIsLoading]=useState(false)
 
   return (
     <div className="header">
@@ -15,7 +25,43 @@ const Header = () => {
         <h3 className="balance-tag">Balance</h3>
         <div className="balance-details">
           {userBalance === 0 && <span> PUB:0</span>}
-          {userBalance !== 0 && <span> PUB:{userBalance}</span>}
+          {userBalance !== 0 && <span> PUB:{userBalance} 
+          {
+            isLoading ? (<ColorRing
+              visible={true}
+              height="26"
+              width="26"
+              ariaLabel="color-ring-loading"
+              wrapperStyle={{}}
+              wrapperClass="color-ring-wrapper"
+              colors={['#e15b64', '#f47e60', '#f8b26a', '#abbd81', '#849b87']}
+              />) :(
+              <IoMdRefresh onClick={()=>{
+                setIsLoading(true)
+                axios({
+                  url: url,
+                  method: "POST",
+                  headers: {
+                    Accept: "Application/json",
+                    "X-Requested-With": "XMLHttpRequest",
+                    Authorization: `Bearer ${window.TOKEN}`,
+                  }
+                }).then(res=>{
+                 if(res?.data?.msg==='success'){
+                  setUserBalance(res?.data?.balance)
+                  toast.success('Balance Updated',{
+                    id:'balance',
+                    position:"top-left"
+                  })
+                  setIsLoading(false)
+                 }
+                }
+                )
+              }} className="text-2xl mx-2 text-gray-300 font-bold cursor-pointer hover:text-gray-400 focus:text-red-400"/>
+            )
+          }
+          
+          </span>}
         </div>
       </div>
       <div className="hidden md:block lg:hidden w-[100%] mx-auto">
