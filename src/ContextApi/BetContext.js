@@ -54,7 +54,7 @@ export function BetContextProvider({ children }) {
   const [sel,setSel]=useState([])
   const [winRatio,setWinRatio]=useState(0)
   const [showCustomizeAmountsModal,setShowCustomizeAmountsModal]=useState(false)
-  const [betPoints,setBetPoints]=useState([50,100,200,400])
+  const [betPoints,setBetPoints]=useState([0.25,0.5,5,10])
   const [isBetComplete,setIsBetComplete]=useState({
     value:null,state:false
   })
