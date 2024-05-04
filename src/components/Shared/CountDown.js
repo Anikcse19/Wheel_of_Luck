@@ -100,15 +100,15 @@ const CountDown = () => {
         toast(`Remain ${Math.floor(totalDuration - 5)}s to bet`, {
           id: "anik",
           duration: 20000,
+          position:'bottom-right',
 
           style: {
             backgroundColor: "#FF9200",
-            opacity:".3",
+            opacity:"10",
             color: "black",
             fontWeight:"700",
             boxShadow: "rgb(38, 57, 77) 0px 20px 30px -10px",
-            marginTop:"80px",
-            marginLeft:"50px"
+           
           },
         });
       }
@@ -134,11 +134,11 @@ const CountDown = () => {
         boxShadow: " 0px 5px 4px 0px rgba(0, 0, 0, 0.55)",
         textShadow: " 0px 4px 4px rgba(0, 0, 0, 0.25)",
       }}
-      className="w-[190px] lg:w-[300px]  h-[72px]   pb-3  rounded-[9px] border-[3px]  border-[#8c3030] bg-[#fc1212]  flex flex-col justify-center items-center gap-2  z-0">
+      className="  h-[72px]   pb-3  rounded-[9px] border-[3px]  border-[#8c3030] bg-[#fc1212]  flex flex-col justify-center items-center gap-2  z-0">
       <div className="w-[142px] lg:w-[200px] xl:w-[300px]  h-[38px]  text-center">
         <span
           style={{ fontFamily: " Mochiy Pop One" }}
-          className="text-white font-bold text-[20px] ">
+          className="text-white font-bold text-base ">
           {isTimerStart ? formatTime(totalDuration) : "00:00:00"}
         </span>
       </div>

@@ -17,15 +17,16 @@ const Header = () => {
   const [isLoading,setIsLoading]=useState(false)
 
   return (
-    <div className="header">
+    <div className="header  py-2 px-2">
       <div className="left-header">
-        <span className="user-title">
-          USER:<p>{window.user.name}</p>
+        <span className="user-title flex items-center gap-2">
+          <p>USER:</p>
+          <p>{window.user.name}</p>
         </span>
-        <h3 className="balance-tag">Balance</h3>
-        <div className="balance-details">
+        <h3 className="balance-tag text-base font-bold text-[#4a2700]">Balance</h3>
+        <div className="balance-details  bg-[#4a2700] px-2 py-1 rounded-md">
           {userBalance === 0 && <span> PUB:0</span>}
-          {userBalance !== 0 && <span> PUB:{userBalance} 
+          {userBalance !== 0 && <span className="flex items-center text-white"> PUB:{userBalance} 
           {
             isLoading ? (<ColorRing
               visible={true}

@@ -184,10 +184,21 @@ const HomePage = () => {
   }, []);
 
   return (
-    <div className={`${isSpin && "!cursor-not-allowed"}  relative content-body w-full  ${showInitialModal ? "h-screen md:h-fit overflow-hidden":"h-fit"} flex flex-col justify-center items-center`}>
-      {showInitialModal && <div className="w-full h-screen fixed 2xl:absolute  z-[1000] md:top-0 "> <InitialLoading /></div>}
+    <div
+      className={`${
+        isSpin && "!cursor-not-allowed"
+      }  relative content-body w-full  ${
+        showInitialModal ? "h-screen md:h-fit overflow-hidden" : "h-fit"
+      } flex flex-col justify-center items-center`}
+    >
+      {showInitialModal && (
+        <div className="w-full h-screen fixed 2xl:absolute  z-[1000] md:top-0 ">
+          {" "}
+          <InitialLoading />
+        </div>
+      )}
       <Header />
-      <div className="block mt-12 md:hidden w-[100%] mx-auto">
+      <div className="block  md:hidden w-[100%] mx-auto">
         <History />
       </div>
       <AudioPlayer />

@@ -6,9 +6,9 @@ const History = () => {
 
   return (
     <div style={{
-      gap:"20px"
-    }} className="w-[100%] flex justify-center items-center mb-[20px]  right-header    lg:mb-0 ">
-      <h1 className="history-title text-[#790707] text-[22px] lg:text-[30px] font-bold self-end">
+      gap:"10px"
+    }} className="w-[100%] flex justify-center items-center  right-header    lg:mb-0 ">
+      <h1 className="text-[#790707] text-[12px] lg:text-[30px] font-bold self-end">
         HISTORY
       </h1>
       <div className="history-time-details flex flex-col justify-center items-center">

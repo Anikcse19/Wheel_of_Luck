@@ -20,9 +20,9 @@ const Home = () => {
 
   return (
     <>
-      <div className="h-[332px] my-5 px-5 lg:px-12 py-5 flex flex-col gap-5 lg:gap-0 lg:flex-row lg:justify-between">
+      <div className="h-[332px]  px-5 lg:px-12  flex flex-col gap-5 lg:gap-0 lg:flex-row lg:justify-between">
         {/* <Wheel1 /> */}
-        <div className="relative">
+        <div className="relative lg:mt-12">
           <Wheel />
           {gameLost && showModal && <LostModal />}
           {gameWin && showModal && <WinModal />}

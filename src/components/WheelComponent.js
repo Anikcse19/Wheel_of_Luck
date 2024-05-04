@@ -66,7 +66,7 @@ const WheelComponent = ({
   if(window.innerWidth <=330){
     centerX = 180;
     centerY = 160;
-    width = 300;
+    width =300;
     height = 300;
   }
   else if (window.innerWidth < 470) {
