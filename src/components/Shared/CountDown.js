@@ -28,7 +28,7 @@ const CountDown = () => {
     const timerInterval = setInterval(() => {
       setTotalDuration((prevDuration) => {
         if (prevDuration > 0) {
-          return prevDuration - 0.5;
+          return prevDuration - 1;
         } else {
           clearInterval(timerInterval);
           return 0;
@@ -91,7 +91,7 @@ const CountDown = () => {
         boxShadow: " 0px 5px 4px 0px rgba(0, 0, 0, 0.55)",
         textShadow: " 0px 4px 4px rgba(0, 0, 0, 0.25)",
       }}
-      className="px-3 md:px-8 py-1 rounded-[9px] border-[3px]  border-[#8c3030] bg-[#fc1212]  flex flex-col justify-center items-center gap-1  z-0">
+      className="px-3 md:px-8 lg:px-12 py-1 lg:py-3 rounded-[9px] border-[3px]  border-[#8c3030] bg-[#fc1212]  flex flex-col justify-center items-center gap-1  z-0">
       <div className=" text-center">
         <span
           style={{ fontFamily: " Mochiy Pop One" }}

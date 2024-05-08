@@ -1,13 +1,13 @@
 import React, { useContext, useEffect } from "react";
 import { BetContext } from "../ContextApi/BetContext";
-import Header from "../components/Shared/Header";
 import echo from "../utils/socket";
 // import globalStateUpdate from "../utils/GlobalStateUpdate";
 
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
-import Home from "../components/Home";
 import InitialLoading from "../components/Modal/InitialLoadingModal";
+import AudioPlayer from "../components/Shared/MusicPlayer";
+import SmallDeviceSetup from "../components/SmallDeviceSetup";
 import globalStateUpdate from "../utils/GlobalStateUpdate";
 
 const HomePage = () => {
@@ -194,13 +194,14 @@ const HomePage = () => {
           <InitialLoading />
         </div>
       )}
-      <Header />
-      {/* <div className="block  md:hidden w-[90%] mx-auto">
-        <History />
+
+      <AudioPlayer />
+      <div>
+        <SmallDeviceSetup/>
+      </div>
+      {/* <div className="hidden lg:block">
+        <LargeScreenSetup />
       </div> */}
-      {/* <AudioPlayer /> */}
-      <Home />
-      {/* <HomeLowerPart /> */}
       <Toaster />
     </div>
   );

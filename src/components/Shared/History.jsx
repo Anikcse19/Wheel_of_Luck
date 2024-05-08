@@ -7,9 +7,9 @@ const History = () => {
   return (
    <div className="w-full flex justify-around gap-1">
     <div className="w-fit self-center">
-      <p className="text-[#FF9900] font-bold">History:</p>
+      <p className="text-[#FF9900] font-bold lg:text-2xl">History:</p>
     </div>
-    <div className="flex-grow bg-[#FF9900] flex justify-evenly items-center gap-1 px-1 py-1 rounded-md">
+    <div className="flex-grow bg-[#FF9900] flex justify-evenly items-center gap-1 lg:gap-2 px-1 lg:px-5 py-1 lg:py-3 rounded-md">
       {
         history?.map(h=>(
           <span
@@ -17,7 +17,7 @@ const History = () => {
             boxShadow: "rgba(0, 0, 0, .8) 0px 5px 15px",
             
           }}
-          className="bg-red-600 px-2 rounded-md font-bold text-white">
+          className="bg-red-600 px-2 lg:px-3 lg:py-1 rounded-md font-bold text-white">
            <p style={{
             textShadow: "#FC0 1px 0 10px"
            }}> {h}</p>

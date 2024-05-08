@@ -5,6 +5,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { ColorRing } from "react-loader-spinner";
 import { BetContext } from "../../ContextApi/BetContext";
+import WinningNumberModal from "../Modal/WinningNumberModal";
 import CountDown from "./CountDown";
 import History from "./History";
 
@@ -90,6 +91,9 @@ const Header = () => {
 
         <div className="">
           <CountDown />
+        </div>
+        <div className="hidden lg:block">
+          <WinningNumberModal/>
         </div>
 
         <div className="hidden lg:block">

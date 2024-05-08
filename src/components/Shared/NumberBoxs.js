@@ -85,7 +85,7 @@ const NumberBoxs = () => {
   });
 
   return (
-    <div className="relative w-full h-full px-3 grid grid-cols-5 gap-2 md:gap-3 xl:gap-5 lg:mx-12">
+    <div className="relative  px-3 grid grid-cols-5 gap-2 md:gap-3 xl:gap-5 lg:mx-12">
       {isTimesUp && !showInitialModal && (
         <div
           onMouseEnter={() => setIsHoverOnShade(true)}
@@ -113,7 +113,7 @@ const NumberBoxs = () => {
         </div>
       )}
       {numbers.map((number, index) => (
-        <div key={index} className="flex justify-center items-center ">
+        <div key={index} className="flex justify-center items-center">
           <div
             onClick={() => {
               if (draggedItem === "") {
@@ -150,8 +150,8 @@ const NumberBoxs = () => {
               selectedColorButton.find((btn) => {
                 return btn.id === index && btn.value;
               })
-                ? `w-16 h-16 md:w-[175px] md:h-[75px] xl:w-[111.905px] xl:h-[102.313px] rounded-[5px] border-1 border-black  text-center flex justify-center items-center  mr-0 cursor-pointer transition-all duration-300 shadow-2xl relative`
-                : "w-16 h-16 md:w-[175px] md:h-[75px] lg:w-[111.905px] lg:h-[102.313px]  rounded-[5px] border-1 border-black  text-center flex justify-center items-center  mr-0 cursor-pointer relative "
+                ? `w-16 h-16 md:w-[175px]  md:h-[75px] lg:w-[111.905px] lg:h-[102.313px] rounded-[5px] border-1 border-black  text-center flex justify-center items-center  mr-0 cursor-pointer transition-all duration-300 shadow-2xl relative`
+                : "w-16 h-16 md:w-[175px] md:h-[75px] lg:w-[111.905px] lg:h-[111.313px]  rounded-[5px] border-1 border-black  text-center flex justify-center items-center  mr-0 cursor-pointer relative "
             }
           >
             {isBetComplete.value === index && isBetComplete.status ? (

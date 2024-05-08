@@ -1,6 +1,5 @@
 import React, { useContext, useEffect } from "react";
 import toast from "react-hot-toast";
-import { BiSolidError } from "react-icons/bi";
 import { FaEdit } from "react-icons/fa";
 import bg1 from "../../../src/assets/image/coinBg1.png";
 import bg2 from "../../../src/assets/image/coinBg2.png";
@@ -51,8 +50,7 @@ const BettingPoint = () => {
 
   const handleDragStart = (event) => {
     //
-    console.log('event',event);
-    console.log('event target',event.target);
+   
     
     if (userBalance >= Number(event.target.innerText)) {
       setDraggedItem(event.target.innerText);
@@ -86,8 +84,7 @@ const BettingPoint = () => {
     if (!isSpin && isBetAble) {
       // playSound();
 
-      console.log('evnet from click',event);
-      console.log('evnet from click',event.currentTarget?.innerText);
+   
       
       const clickedDiv = event.currentTarget;
       const clickedPoint = clickedDiv?.innerText;
@@ -146,7 +143,7 @@ const BettingPoint = () => {
 
   return (
     <>
-      <div className="flex flex-col lg:w-[400px] xl:w-[702px]  gap-5">
+      <div className="flex flex-col  lg:w-[400px] xl:w-[702px]  gap-5">
         <div className="w-[100%]  justify-center flex flex-wrap items-center gap-5 relative">
 
           {/* coin 1 start */}
@@ -290,7 +287,7 @@ const BettingPoint = () => {
         </div>
 
         {/* Input filed and button */}
-        <div className="flex flex-row  justify-center my-2 lg:justify-center gap-1 lg:gap-5  items-center w-[100%] lg:w-[480px] xl:w-[702px]">
+        {/* <div className="flex flex-row  justify-center my-2 lg:justify-center gap-1 lg:gap-5  items-center w-[100%] lg:w-[480px] xl:w-[702px]">
           <div className="flex flex-col relative">
             <h1
               style={{ textShadow: "0px 4px 4px rgba(0, 0, 0, 0.30)" }}
@@ -353,7 +350,7 @@ const BettingPoint = () => {
           </div>
 
 
-          {/* <div
+          <div
             onClick={handlePlaceBet}
             style={{ boxShadow: " 0px 4px 4px 0px rgba(0, 0, 0, 0.45)" }}
             className={
@@ -377,8 +374,8 @@ const BettingPoint = () => {
                 <span>PLACE BET</span>
               )}
             </span>
-          </div> */}
-        </div>
+          </div>
+        </div> */}
       </div>
     </>
   );
