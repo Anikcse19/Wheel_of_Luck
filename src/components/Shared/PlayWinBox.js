@@ -22,7 +22,7 @@ const playWinBox = () => {
           }}
           className="bg-[#9B5800] px-1 lg:px-5 lg:py-2 rounded border border-red-600"
         >
-          <span className="text-white font-bold text-[14px] lg:text-xl">{totalPlay}</span>
+          <span className="text-white font-bold text-[10px] lg:text-xl">{totalPlay}</span>
         </div>
       </div>
 
@@ -34,7 +34,7 @@ const playWinBox = () => {
           }}
           className="bg-[#9B5800] px-1 lg:px-5 lg:py-2 rounded border border-red-600"
         >
-          <span className="text-white font-bold text-[14px] lg:text-xl">{totalWin}</span>
+          <span className="text-white font-bold text-[10px] lg:text-xl">{totalWin}</span>
         </div>
       </div>
     </div>

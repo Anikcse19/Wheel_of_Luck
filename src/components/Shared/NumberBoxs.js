@@ -37,7 +37,7 @@ const NumberBoxs = () => {
     setIsBetComplete,
   } = useContext(BetContext);
 
-  const [isHoverOnShade, setIsHoverOnShade] = useState(false);
+  const [isHoverOnShade, setIsHoverOnShade] = useState(true);
 
   const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
@@ -85,14 +85,14 @@ const NumberBoxs = () => {
   });
 
   return (
-    <div className="relative  px-3 grid grid-cols-5 gap-2 md:gap-3 xl:gap-5 lg:mx-12">
+    <div className="relative  px-3 grid grid-cols-5 gap-4 md:gap-3 xl:gap-5 lg:mx-12">
       {isTimesUp && !showInitialModal && (
         <div
           onMouseEnter={() => setIsHoverOnShade(true)}
           onMouseLeave={() => setIsHoverOnShade(false)}
           className={`${
             isHoverOnShade && "bg-black"
-          } opacity-[.7] w-full h-full py-4 rounded-md flex justify-center items-center absolute  overflow-hidden z-[10000]`}
+          } opacity-[.7] w-full h-full py-4 p-12 rounded-md flex justify-center items-center absolute  overflow-hidden z-[10000]`}
         >
           {isHoverOnShade && (
             <div className=" my-2 px-3 py-2 lg:px-12 lg:py-6 xl:px-24 xl:py-12 flex flex-col justify-center items-center ">
@@ -172,8 +172,8 @@ const NumberBoxs = () => {
                     selectedColorButton.find((btn) => {
                       return btn.id === index && btn.value;
                     })
-                      ? "text-[32px] md:text-[40px] w-[20px] h-[39px] md:w-[32px] md:h-[57px] font-[700] text-black md:mt-5"
-                      : "text-[32px] md:text-[40px] w-[20px] h-[39px] md:w-[32px] md:h-[57px] font-[700] text-[#fff]  "
+                      ? "text-[32px] md:text-[40px]  font-[700] text-black"
+                      : "text-[32px] md:text-[40px] font-[700] text-[#fff]  "
                   }
                 >
                   {number}
