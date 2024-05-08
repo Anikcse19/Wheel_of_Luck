@@ -37,7 +37,7 @@ const NumberBoxs = () => {
     setIsBetComplete,
   } = useContext(BetContext);
 
-  const [isHoverOnShade, setIsHoverOnShade] = useState(true);
+  const [isHoverOnShade, setIsHoverOnShade] = useState(false);
 
   const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
