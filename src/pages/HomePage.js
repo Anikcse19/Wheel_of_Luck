@@ -1,16 +1,13 @@
 import React, { useContext, useEffect } from "react";
 import { BetContext } from "../ContextApi/BetContext";
-import Home from "../components/Home";
-import HomeLowerPart from "../components/HomeLowerPart";
 import Header from "../components/Shared/Header";
 import echo from "../utils/socket";
 // import globalStateUpdate from "../utils/GlobalStateUpdate";
 
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
+import Home from "../components/Home";
 import InitialLoading from "../components/Modal/InitialLoadingModal";
-import History from "../components/Shared/History";
-import AudioPlayer from "../components/Shared/MusicPlayer";
 import globalStateUpdate from "../utils/GlobalStateUpdate";
 
 const HomePage = () => {
@@ -189,7 +186,7 @@ const HomePage = () => {
         isSpin && "!cursor-not-allowed"
       }  relative content-body w-full  ${
         showInitialModal ? "h-screen md:h-fit overflow-hidden" : "h-fit"
-      } flex flex-col justify-center items-center`}
+      } `}
     >
       {showInitialModal && (
         <div className="w-full h-screen fixed 2xl:absolute  z-[1000] md:top-0 ">
@@ -198,12 +195,12 @@ const HomePage = () => {
         </div>
       )}
       <Header />
-      <div className="block  md:hidden w-[100%] mx-auto">
+      {/* <div className="block  md:hidden w-[90%] mx-auto">
         <History />
-      </div>
-      <AudioPlayer />
+      </div> */}
+      {/* <AudioPlayer /> */}
       <Home />
-      <HomeLowerPart />
+      {/* <HomeLowerPart /> */}
       <Toaster />
     </div>
   );

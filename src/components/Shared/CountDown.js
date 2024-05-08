@@ -22,50 +22,7 @@ const CountDown = () => {
 
   const totalTime = 30;
 
-  // useEffect(() => {
-  //   // Create a new Howl instance and store it in the audioRef
-  //   audioRef.current = new Howl({
-  //     src: [countdownSound],
-  //   });
-
-  //   // Cleanup function to stop and unload the audio when component unmounts
-  //   return () => {
-  //     if (audioRef.current) {
-  //       audioRef.current.stop();
-  //       audioRef.current.unload();
-  //     }
-  //   };
-  // }, [isTimerStart]);
-  // useEffect(() => {
-  //   // Check if the timer is started
-  //   if (isTimerStart) {
-  //     // Check if the audioRef is available
-  //     if (audioRef.current) {
-  //       // If the audio is already playing, stop it before playing again
-  //       audioRef.current.stop();
-  //       // Play the audio
-  //       audioRef.current.play();
-  //     }
-  //   } else {
-  //     // If the timer is not started, stop the audio
-  //     if (audioRef.current) {
-  //       audioRef.current.stop();
-  //     }
-  //   }
-  // }, [isTimerStart]);
-
-  // useEffect(() => {
-  //   const playBtn = document.getElementById("sound-play");
-  //   // if (isTimerStart) {
-  //   playBtn.addEventListener("click", () => {
-  //     const sound = new Howl({
-  //       src: [countDown],
-  //     });
-
-  //     sound.play();
-  //   });
-  //   // }
-  // }, [isTimerStart]);
+ 
 
   useEffect(() => {
     const timerInterval = setInterval(() => {
@@ -134,8 +91,8 @@ const CountDown = () => {
         boxShadow: " 0px 5px 4px 0px rgba(0, 0, 0, 0.55)",
         textShadow: " 0px 4px 4px rgba(0, 0, 0, 0.25)",
       }}
-      className="  h-[72px]   pb-3  rounded-[9px] border-[3px]  border-[#8c3030] bg-[#fc1212]  flex flex-col justify-center items-center gap-2  z-0">
-      <div className="w-[142px] lg:w-[200px] xl:w-[300px]  h-[38px]  text-center">
+      className="px-3 md:px-8 py-1 rounded-[9px] border-[3px]  border-[#8c3030] bg-[#fc1212]  flex flex-col justify-center items-center gap-1  z-0">
+      <div className=" text-center">
         <span
           style={{ fontFamily: " Mochiy Pop One" }}
           className="text-white font-bold text-base ">
@@ -144,7 +101,7 @@ const CountDown = () => {
       </div>
       {isTimerStart ? (
         <progress
-        // className="bg-red-900"
+        className="w-full"
           id="file"
           value={totalTime - totalDuration}
           max={totalTime}></progress>

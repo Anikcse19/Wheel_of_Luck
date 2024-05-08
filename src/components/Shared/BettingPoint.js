@@ -2,6 +2,10 @@ import React, { useContext, useEffect } from "react";
 import toast from "react-hot-toast";
 import { BiSolidError } from "react-icons/bi";
 import { FaEdit } from "react-icons/fa";
+import bg1 from "../../../src/assets/image/coinBg1.png";
+import bg2 from "../../../src/assets/image/coinBg2.png";
+import bg3 from "../../../src/assets/image/coinBg3.png";
+import bg4 from "../../../src/assets/image/coinBg4.png";
 import { BetContext } from "../../ContextApi/BetContext";
 import bettingDone from "../../utils/BettingDone";
 import CustomizeAmounts from "../Modal/CustomizeAmounts";
@@ -47,6 +51,9 @@ const BettingPoint = () => {
 
   const handleDragStart = (event) => {
     //
+    console.log('event',event);
+    console.log('event target',event.target);
+    
     if (userBalance >= Number(event.target.innerText)) {
       setDraggedItem(event.target.innerText);
     } else {
@@ -78,8 +85,12 @@ const BettingPoint = () => {
   const handleAmountClick = (event) => {
     if (!isSpin && isBetAble) {
       // playSound();
+
+      console.log('evnet from click',event);
+      console.log('evnet from click',event.currentTarget?.innerText);
+      
       const clickedDiv = event.currentTarget;
-      const clickedPoint = clickedDiv.querySelector(".bet-point").innerText;
+      const clickedPoint = clickedDiv?.innerText;
       //
       if (clickedPoint <= userBalance) {
         setError(false);
@@ -137,58 +148,142 @@ const BettingPoint = () => {
     <>
       <div className="flex flex-col lg:w-[400px] xl:w-[702px]  gap-5">
         <div className="w-[100%]  justify-center flex flex-wrap items-center gap-5 relative">
-          {betPoints.map((point, index) => (
-            <div key={index} className="flex flex-col gap-3 items-center">
+
+          {/* coin 1 start */}
+          <div className="flex flex-col gap-3 items-center">
+            <div
+            draggable={true}
+            onDragStart={handleDragStart}
+            onDragOver={handleDragOver}
+            onDrop={handleDrop}
+            onClick={handleAmountClick}
+              style={{
+               
+                  backgroundImage: `url(${bg1})`,
+                  backgroundSize: 'cover',
+              }}
+              className="w-[70px] h-[70px] xl:w-[150px]  xl:h-[150px]  rounded-full   flex justify-center items-center cursor-pointer"
+            >
               <div
-                style={{
-                  boxShadow:
-                    "rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px",
-                }}
-                className="w-[88px] h-[88px] xl:w-[150px]  xl:h-[150px] bg-purple-300 rounded-full  border border-black  flex justify-center items-center cursor-pointer "
-              >
-                <div
-                  draggable={true}
-                  onDragStart={handleDragStart}
-                  onDragOver={handleDragOver}
-                  onDrop={handleDrop}
-                  onClick={handleAmountClick}
-                  className="w-[75px] h-[75px]  xl:w-[125px] xl:h-[125px] rounded-full border-2 border-dashed border-purple-900 flex justify-center items-center "
-                >
-                  <div className="w-[65px] h-[65px] xl:w-[110px] xl:h-[110px] bg-purple-400 rounded-full border border-black flex flex-col gap-2 justify-center items-center hover:bg-purple-500">
-                    <div
-                      id="bet-point"
-                      className="bet-point text-base font-bold text-black lg:text-2xl"
-                    >
-                      {point}
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <span
-                onClick={() => setShowCustomizeAmountsModal(true)}
-                className="text-white cursor-pointer flex justify-center items-center bg-slate-700 p-3 rounded-full"
-              >
-                <FaEdit />
-              </span>
-            </div>
-          ))}
-
-          {/* <div
-            style={{
-              boxShadow: "rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px"
-            }}
-              // key={index}
-              className="w-[88px] h-[88px] xl:w-[150px]  xl:h-[150px] bg-[#fc1212] rounded-full  border border-black  flex justify-center items-center cursor-pointer "> */}
-          {/* <div onClick={()=>setShowCustomizeAmountsModal(true)} title="Customize Bet Amounts" className="w-[65px] h-[65px] xl:w-[110px] xl:h-[110px] bg-white opacity-70 rounded-full border border-black flex justify-center items-center hover:bg-gray-200 cursor-pointer">
-                  <div
+                   
                     id="bet-point"
-                    className="bet-point text-lg md:text-3xl lg:text-6xl text-black ">
-                    Edit
+                    className="bet-point text-base font-bold lg:text-2xl "
+                  >
+                    {betPoints[0]}
                   </div>
-                </div> */}
-          {/* </div> */}
-          {/* </div> */}
+              
+            </div>
+
+            <span
+              onClick={() => setShowCustomizeAmountsModal(true)}
+              className="text-white cursor-pointer flex justify-center items-center bg-slate-700 p-3 rounded-full"
+            >
+              <FaEdit />
+            </span>
+          </div>
+          {/* coin1 end */}
+
+          {/* coin2 start */}
+          <div className="flex flex-col gap-3 items-center">
+            <div
+            
+              style={{
+               
+                  backgroundImage: `url(${bg2})`,
+                  backgroundSize: 'cover',
+              }}
+              className="w-[70px] h-[70px] xl:w-[150px]  xl:h-[150px]  rounded-full   flex justify-center items-center cursor-pointer p-3"
+            >
+              <div
+                   draggable={true}
+                   onDragStart={handleDragStart}
+                   onDragOver={handleDragOver}
+                   onDrop={handleDrop}
+                   onClick={handleAmountClick}
+                    id="bet-point"
+                    className="bet-point text-base font-bold lg:text-2xl"
+                  >
+                    {betPoints[1]}
+                  </div>
+              
+            </div>
+
+            <span
+              onClick={() => setShowCustomizeAmountsModal(true)}
+              className="text-white cursor-pointer flex justify-center items-center bg-slate-700 p-3 rounded-full"
+            >
+              <FaEdit />
+            </span>
+          </div>
+          {/* coin2 end */}
+
+          {/* coin 3 start */}
+          <div className="flex flex-col gap-3 items-center">
+            <div
+            
+              style={{
+               
+                  backgroundImage: `url(${bg3})`,
+                  backgroundSize: 'cover',
+              }}
+              className="w-[70px] h-[70px] xl:w-[150px]  xl:h-[150px]  rounded-full   flex justify-center items-center cursor-pointer p-3"
+            >
+              <div
+                   draggable={true}
+                   onDragStart={handleDragStart}
+                   onDragOver={handleDragOver}
+                   onDrop={handleDrop}
+                   onClick={handleAmountClick}
+                    id="bet-point"
+                    className="bet-point text-base font-bold lg:text-2xl"
+                  >
+                    {betPoints[2]}
+                  </div>
+              
+            </div>
+
+            <span
+              onClick={() => setShowCustomizeAmountsModal(true)}
+              className="text-white cursor-pointer flex justify-center items-center bg-slate-700 p-3 rounded-full"
+            >
+              <FaEdit />
+            </span>
+          </div>
+          {/* coin 3 end */}
+
+          {/* coin 4 start */}
+          <div className="flex flex-col gap-3 items-center">
+            <div
+            
+              style={{
+               
+                  backgroundImage: `url(${bg4})`,
+                  backgroundSize: 'cover',
+              }}
+              className="w-[70px] h-[70px] xl:w-[150px]  xl:h-[150px]  rounded-full   flex justify-center items-center cursor-pointer p-3"
+            >
+              <div
+                   draggable={true}
+                   onDragStart={handleDragStart}
+                   onDragOver={handleDragOver}
+                   onDrop={handleDrop}
+                   onClick={handleAmountClick}
+                    id="bet-point"
+                    className="bet-point text-base font-bold lg:text-2xl"
+                  >
+                    {betPoints[3]}
+                  </div>
+              
+            </div>
+
+            <span
+              onClick={() => setShowCustomizeAmountsModal(true)}
+              className="text-white cursor-pointer flex justify-center items-center bg-slate-700 p-3 rounded-full"
+            >
+              <FaEdit />
+            </span>
+          </div>
+          {/* coin 4 end */}
 
           {/* modal */}
           {showCustomizeAmountsModal && <CustomizeAmounts />}
@@ -256,6 +351,8 @@ const BettingPoint = () => {
               </div>
             )}
           </div>
+
+
           {/* <div
             onClick={handlePlaceBet}
             style={{ boxShadow: " 0px 4px 4px 0px rgba(0, 0, 0, 0.45)" }}

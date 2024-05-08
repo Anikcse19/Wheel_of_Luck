@@ -19,12 +19,12 @@
 } */
 
 /* .label { */
-/* font-size: 20px; */
+/* font-size: 10px; */
 /* color: white; */
 /* } */
 /* @media only screen and (max-width: 600px) {
   .wrapper {
-    height: 20px;
+    height: 10px;
     padding-bottom: 5px;
   }
   .barCompleted {
@@ -33,39 +33,39 @@
 } */
 
 #file {
-  width: 70%; /* Set the width of the progress bar */
-  height: 20px; /* Set the height of the progress bar */
-  border-radius: 20px;
+  width: 100%; /* Set the width of the progress bar */
+  height: 10px; /* Set the height of the progress bar */
+  border-radius: 10px;
 }
 
 /* Customize the color of the progress bar */
 #file::-webkit-progress-value {
   background-color: #166619; /* Green color */
-  border-radius: 20px;
+  border-radius: 10px;
 }
 
 #file::-moz-progress-bar {
   background-color: #4caf50; /* Green color */
-  border-radius: 20px;
+  border-radius: 10px;
 }
 
 #file::-ms-fill {
   background-color: #107513; /* Green color */
-  border-radius: 20px;
+  border-radius: 10px;
 }
 
 /* Customize the color of the progress bar track */
 #file::-webkit-progress-bar {
   background-color: yellow; /* Light gray color */
-  border-radius: 20px;
+  border-radius: 10px;
 }
 
 #file::-moz-progress-bar {
   background-color: yellow; /* Light gray color */
-  border-radius: 20px;
+  border-radius: 10px;
 }
 
 #file::-ms-fill-lower {
   background-color: yellow; /* Light gray color */
-  border-radius: 20px;
+  border-radius: 10px;
 }
