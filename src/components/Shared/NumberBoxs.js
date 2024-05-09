@@ -85,7 +85,7 @@ const NumberBoxs = () => {
   });
 
   return (
-    <div className="relative  px-3 grid grid-cols-5 gap-4 md:gap-3 xl:gap-5 lg:mx-12">
+    <div className="relative py-5 px-3 grid grid-cols-5 gap-4 md:gap-3 xl:gap-5 lg:mx-12">
       {isTimesUp && !showInitialModal && (
         <div
           onMouseEnter={() => setIsHoverOnShade(true)}

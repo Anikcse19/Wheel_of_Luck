@@ -147,8 +147,8 @@ const BettingPoint = () => {
         <div className="w-[100%]  justify-center flex flex-wrap items-center gap-5 relative">
 
           {/* coin 1 start */}
-          <div className="flex flex-col gap-3 items-center">
-            <div
+          <div className="flex flex-col gap-3 items-center ">
+          <div
             draggable={true}
             onDragStart={handleDragStart}
             onDragOver={handleDragOver}
@@ -159,7 +159,7 @@ const BettingPoint = () => {
                   backgroundImage: `url(${bg1})`,
                   backgroundSize: 'cover',
               }}
-              className="w-[70px] h-[70px] xl:w-[150px]  xl:h-[150px]  rounded-full   flex justify-center items-center cursor-pointer"
+              className="w-[70px] h-[70px] md:w-[120px] md:h-[120px] xl:w-[150px]  xl:h-[150px]  rounded-full   flex justify-center items-center cursor-pointer"
             >
               <div
                    
@@ -183,7 +183,11 @@ const BettingPoint = () => {
           {/* coin2 start */}
           <div className="flex flex-col gap-3 items-center">
             <div
-            
+            draggable={true}
+            onDragStart={handleDragStart}
+            onDragOver={handleDragOver}
+            onDrop={handleDrop}
+            onClick={handleAmountClick}
               style={{
                
                   backgroundImage: `url(${bg2})`,
@@ -192,11 +196,7 @@ const BettingPoint = () => {
               className="w-[70px] h-[70px] xl:w-[150px]  xl:h-[150px]  rounded-full   flex justify-center items-center cursor-pointer p-3"
             >
               <div
-                   draggable={true}
-                   onDragStart={handleDragStart}
-                   onDragOver={handleDragOver}
-                   onDrop={handleDrop}
-                   onClick={handleAmountClick}
+                   
                     id="bet-point"
                     className="bet-point text-base font-bold lg:text-2xl"
                   >
@@ -217,7 +217,11 @@ const BettingPoint = () => {
           {/* coin 3 start */}
           <div className="flex flex-col gap-3 items-center">
             <div
-            
+            draggable={true}
+            onDragStart={handleDragStart}
+            onDragOver={handleDragOver}
+            onDrop={handleDrop}
+            onClick={handleAmountClick}
               style={{
                
                   backgroundImage: `url(${bg3})`,
@@ -226,11 +230,7 @@ const BettingPoint = () => {
               className="w-[70px] h-[70px] xl:w-[150px]  xl:h-[150px]  rounded-full   flex justify-center items-center cursor-pointer p-3"
             >
               <div
-                   draggable={true}
-                   onDragStart={handleDragStart}
-                   onDragOver={handleDragOver}
-                   onDrop={handleDrop}
-                   onClick={handleAmountClick}
+                   
                     id="bet-point"
                     className="bet-point text-base font-bold lg:text-2xl"
                   >
@@ -251,7 +251,11 @@ const BettingPoint = () => {
           {/* coin 4 start */}
           <div className="flex flex-col gap-3 items-center">
             <div
-            
+            draggable={true}
+            onDragStart={handleDragStart}
+            onDragOver={handleDragOver}
+            onDrop={handleDrop}
+            onClick={handleAmountClick}
               style={{
                
                   backgroundImage: `url(${bg4})`,
@@ -260,11 +264,7 @@ const BettingPoint = () => {
               className="w-[70px] h-[70px] xl:w-[150px]  xl:h-[150px]  rounded-full   flex justify-center items-center cursor-pointer p-3"
             >
               <div
-                   draggable={true}
-                   onDragStart={handleDragStart}
-                   onDragOver={handleDragOver}
-                   onDrop={handleDrop}
-                   onClick={handleAmountClick}
+                   
                     id="bet-point"
                     className="bet-point text-base font-bold lg:text-2xl"
                   >
