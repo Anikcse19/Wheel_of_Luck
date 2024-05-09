@@ -170,11 +170,11 @@ const BettingPoint = () => {
                   backgroundPosition: 'center',
                   backgroundSize:'cover'
               }}
-              className={`${selectedCoin === 0 && "pulse w-[70px] h-[70px] md:w-[120px] md:h-[120px] xl:w-[150px]  xl:h-[150px]"} w-[50px] h-[50px] md:w-[100px] md:h-[100px] xl:w-[120px]  xl:h-[120px]  rounded-full   flex justify-center items-center cursor-pointer`}
+              className={`${selectedCoin === 0 && "pulse w-[90px] h-[90px] md:w-[120px] md:h-[120px] xl:w-[150px]  xl:h-[150px]"} w-[70px] h-[70px] md:w-[100px] md:h-[100px] xl:w-[120px]  xl:h-[120px]  rounded-full   flex justify-center items-center cursor-pointer`}
             >
               <div
                     id="bet-point"
-                    className="bet-point text-base font-bold lg:text-xl text-white "
+                    className="bet-point text-[12px] font-bold lg:text-xl text-white "
                   >
                     {betPoints[0]}
                   </div>
@@ -208,12 +208,12 @@ const BettingPoint = () => {
                   backgroundSize:'cover'
                   
               }}
-              className={`${selectedCoin === 1 && "pulse w-[100px] h-[70px] md:w-[120px] md:h-[120px] xl:w-[150px]  xl:h-[150px]"} w-[50px] h-[50px] md:w-[100px] md:h-[100px] xl:w-[120px]  xl:h-[120px]  rounded-full   flex justify-center items-center cursor-pointer`}
+              className={`${selectedCoin === 1 && "pulse w-[90px] h-[90px] md:w-[120px] md:h-[120px] xl:w-[150px]  xl:h-[150px]"} w-[70px] h-[70px] md:w-[100px] md:h-[100px] xl:w-[120px]  xl:h-[120px]  rounded-full   flex justify-center items-center cursor-pointer`}
             >
               <div
                    
                     id="bet-point"
-                    className="bet-point text-base font-bold lg:text-2xl text-white"
+                    className="bet-point text-[12px] font-bold lg:text-xl text-white"
                   >
                     {betPoints[1]}
                   </div>
@@ -246,12 +246,12 @@ const BettingPoint = () => {
                   backgroundPosition: 'center',
                   backgroundSize:'cover'
               }}
-              className={`${selectedCoin === 2 && "pulse w-[70px] h-[70px] md:w-[120px] md:h-[120px] xl:w-[150px]  xl:h-[150px]"} w-[50px] h-[50px] md:w-[100px] md:h-[100px] xl:w-[120px]  xl:h-[120px]  rounded-full   flex justify-center items-center cursor-pointer`}
+              className={`${selectedCoin === 2 && "pulse w-[90px] h-[90px] md:w-[120px] md:h-[120px] xl:w-[150px]  xl:h-[150px]"} w-[70px] h-[70px] md:w-[100px] md:h-[100px] xl:w-[120px]  xl:h-[120px]  rounded-full   flex justify-center items-center cursor-pointer`}
             >
               <div
                    
                     id="bet-point"
-                    className="bet-point text-base font-bold lg:text-2xl text-white"
+                    className="bet-point text-[12px] font-bold lg:text-xl text-white"
                   >
                     {betPoints[2]}
                   </div>
@@ -284,12 +284,12 @@ const BettingPoint = () => {
                   backgroundPosition: 'center',
                   backgroundSize:'cover'
               }}
-              className={`${selectedCoin === 3 && "pulse w-[70px] h-[70px] md:w-[120px] md:h-[120px] xl:w-[150px]  xl:h-[150px]"} w-[50px] h-[50px] md:w-[100px] md:h-[100px] xl:w-[120px]  xl:h-[120px]  rounded-full   flex justify-center items-center cursor-pointer ` }
+              className={`${selectedCoin === 3 && "pulse w-[90px] h-[90px] md:w-[120px] md:h-[120px] xl:w-[150px]  xl:h-[150px]"} w-[70px] h-[70px] md:w-[100px] md:h-[100px] xl:w-[120px]  xl:h-[120px]  rounded-full   flex justify-center items-center cursor-pointer ` }
             >
               <div
                    
                     id="bet-point"
-                    className="bet-point text-white  text-base font-bold lg:text-2xl"
+                    className="bet-point text-white  text-[12px] font-bold lg:text-xl"
                   >
                     {betPoints[3]}
                   </div>
