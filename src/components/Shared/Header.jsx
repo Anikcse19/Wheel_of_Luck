@@ -92,7 +92,7 @@ const Header = () => {
         <div className="">
           <CountDown />
         </div>
-        <div className="hidden lg:block">
+        <div className="hidden lg:block ">
           <WinningNumberModal/>
         </div>
 

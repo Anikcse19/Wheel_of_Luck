@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { FaEdit } from "react-icons/fa";
 import bg1 from "../../../src/assets/image/coinBg1.png";
@@ -36,6 +36,8 @@ const BettingPoint = () => {
     betPoints,
     setBetPoints,
   } = useContext(BetContext);
+
+  const [selectedCoin,setSelectedCoin]=useState(null)
 
   // const points = [50, 100, 200, 400];
 
@@ -80,19 +82,24 @@ const BettingPoint = () => {
     setDraggedItem("");
   };
 
-  const handleAmountClick = (event) => {
+  const handleAmountClick = (event,index) => {
+
     if (!isSpin && isBetAble) {
       // playSound();
 
    
       
       const clickedDiv = event.currentTarget;
+      
       const clickedPoint = clickedDiv?.innerText;
+      setSelectedCoin(index)
       //
       if (clickedPoint <= userBalance) {
         setError(false);
         setBetAmount(clickedPoint);
         setDraggedItem(clickedPoint);
+        
+       
         toast.success(`Amount Selected ${clickedPoint}`, {
           position: "bottom-right",
           id: "bet_amount",
@@ -153,18 +160,21 @@ const BettingPoint = () => {
             onDragStart={handleDragStart}
             onDragOver={handleDragOver}
             onDrop={handleDrop}
-            onClick={handleAmountClick}
+            onClick={(e)=>{
+              setSelectedCoin(0)
+              handleAmountClick(e,0)
+            }}
               style={{
                
                   backgroundImage: `url(${bg1})`,
-                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  backgroundSize:'cover'
               }}
-              className="w-[70px] h-[70px] md:w-[120px] md:h-[120px] xl:w-[150px]  xl:h-[150px]  rounded-full   flex justify-center items-center cursor-pointer"
+              className={`${selectedCoin === 0 && "pulse w-[70px] h-[70px] md:w-[120px] md:h-[120px] xl:w-[150px]  xl:h-[150px]"} w-[50px] h-[50px] md:w-[100px] md:h-[100px] xl:w-[120px]  xl:h-[120px]  rounded-full   flex justify-center items-center cursor-pointer`}
             >
               <div
-                   
                     id="bet-point"
-                    className="bet-point text-base font-bold lg:text-2xl "
+                    className="bet-point text-base font-bold lg:text-2xl text-white "
                   >
                     {betPoints[0]}
                   </div>
@@ -187,18 +197,23 @@ const BettingPoint = () => {
             onDragStart={handleDragStart}
             onDragOver={handleDragOver}
             onDrop={handleDrop}
-            onClick={handleAmountClick}
+            onClick={(e)=>{
+              setSelectedCoin(1)
+              handleAmountClick(e,1)
+            }}
               style={{
                
                   backgroundImage: `url(${bg2})`,
-                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  backgroundSize:'cover'
+                  
               }}
-              className="w-[70px] h-[70px] xl:w-[150px]  xl:h-[150px]  rounded-full   flex justify-center items-center cursor-pointer p-3"
+              className={`${selectedCoin === 1 && "pulse w-[100px] h-[70px] md:w-[120px] md:h-[120px] xl:w-[150px]  xl:h-[150px]"} w-[50px] h-[50px] md:w-[100px] md:h-[100px] xl:w-[120px]  xl:h-[120px]  rounded-full   flex justify-center items-center cursor-pointer`}
             >
               <div
                    
                     id="bet-point"
-                    className="bet-point text-base font-bold lg:text-2xl"
+                    className="bet-point text-base font-bold lg:text-2xl text-white"
                   >
                     {betPoints[1]}
                   </div>
@@ -221,18 +236,22 @@ const BettingPoint = () => {
             onDragStart={handleDragStart}
             onDragOver={handleDragOver}
             onDrop={handleDrop}
-            onClick={handleAmountClick}
+            onClick={(e)=>{
+              setSelectedCoin(2)
+              handleAmountClick(e,2)
+            }}
               style={{
                
                   backgroundImage: `url(${bg3})`,
-                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  backgroundSize:'cover'
               }}
-              className="w-[70px] h-[70px] xl:w-[150px]  xl:h-[150px]  rounded-full   flex justify-center items-center cursor-pointer p-3"
+              className={`${selectedCoin === 2 && "pulse w-[70px] h-[70px] md:w-[120px] md:h-[120px] xl:w-[150px]  xl:h-[150px]"} w-[50px] h-[50px] md:w-[100px] md:h-[100px] xl:w-[120px]  xl:h-[120px]  rounded-full   flex justify-center items-center cursor-pointer`}
             >
               <div
                    
                     id="bet-point"
-                    className="bet-point text-base font-bold lg:text-2xl"
+                    className="bet-point text-base font-bold lg:text-2xl text-white"
                   >
                     {betPoints[2]}
                   </div>
@@ -249,24 +268,28 @@ const BettingPoint = () => {
           {/* coin 3 end */}
 
           {/* coin 4 start */}
-          <div className="flex flex-col gap-3 items-center">
+          <div className="flex flex-col justify-center gap-3 items-center">
             <div
             draggable={true}
             onDragStart={handleDragStart}
             onDragOver={handleDragOver}
             onDrop={handleDrop}
-            onClick={handleAmountClick}
+            onClick={(e)=>{
+              setSelectedCoin(3)
+              handleAmountClick(e,3)
+            }}
               style={{
                
                   backgroundImage: `url(${bg4})`,
-                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  backgroundSize:'cover'
               }}
-              className="w-[70px] h-[70px] xl:w-[150px]  xl:h-[150px]  rounded-full   flex justify-center items-center cursor-pointer p-3"
+              className={`${selectedCoin === 3 && "pulse w-[70px] h-[70px] md:w-[120px] md:h-[120px] xl:w-[150px]  xl:h-[150px]"} w-[50px] h-[50px] md:w-[100px] md:h-[100px] xl:w-[120px]  xl:h-[120px]  rounded-full   flex justify-center items-center cursor-pointer ` }
             >
               <div
                    
                     id="bet-point"
-                    className="bet-point text-base font-bold lg:text-2xl"
+                    className="bet-point text-white  text-base font-bold lg:text-2xl"
                   >
                     {betPoints[3]}
                   </div>
