@@ -92,13 +92,13 @@ const BettingPoint = () => {
       const clickedDiv = event.currentTarget;
       
       const clickedPoint = clickedDiv?.innerText;
-      setSelectedCoin(index)
+     
       //
       if (clickedPoint <= userBalance) {
         setError(false);
         setBetAmount(clickedPoint);
         setDraggedItem(clickedPoint);
-        
+        setSelectedCoin(index)
        
         toast.success(`Amount Selected ${clickedPoint}`, {
           position: "bottom-right",
@@ -161,7 +161,7 @@ const BettingPoint = () => {
             onDragOver={handleDragOver}
             onDrop={handleDrop}
             onClick={(e)=>{
-              setSelectedCoin(0)
+              // setSelectedCoin(0)
               handleAmountClick(e,0)
             }}
               style={{
@@ -174,7 +174,7 @@ const BettingPoint = () => {
             >
               <div
                     id="bet-point"
-                    className="bet-point text-base font-bold lg:text-2xl text-white "
+                    className="bet-point text-base font-bold lg:text-xl text-white "
                   >
                     {betPoints[0]}
                   </div>
@@ -198,7 +198,7 @@ const BettingPoint = () => {
             onDragOver={handleDragOver}
             onDrop={handleDrop}
             onClick={(e)=>{
-              setSelectedCoin(1)
+              // setSelectedCoin(1)
               handleAmountClick(e,1)
             }}
               style={{
@@ -237,7 +237,7 @@ const BettingPoint = () => {
             onDragOver={handleDragOver}
             onDrop={handleDrop}
             onClick={(e)=>{
-              setSelectedCoin(2)
+              // setSelectedCoin(2)
               handleAmountClick(e,2)
             }}
               style={{
@@ -275,7 +275,7 @@ const BettingPoint = () => {
             onDragOver={handleDragOver}
             onDrop={handleDrop}
             onClick={(e)=>{
-              setSelectedCoin(3)
+              // setSelectedCoin(3)
               handleAmountClick(e,3)
             }}
               style={{
