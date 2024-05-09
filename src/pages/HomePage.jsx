@@ -196,7 +196,7 @@ const HomePage = () => {
       )}
 
       <AudioPlayer />
-      <div>
+      <div className="mb-12">
         <SmallDeviceSetup/>
       </div>
       {/* <div className="hidden lg:block">
