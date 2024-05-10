@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import toast from "react-hot-toast";
 import { FaEdit } from "react-icons/fa";
 import bg1 from "../../../src/assets/image/coinBg1.png";
@@ -34,10 +34,10 @@ const BettingPoint = () => {
     showCustomizeAmountsModal,
     setShowCustomizeAmountsModal,
     betPoints,
-    setBetPoints,
+    setBetPoints,selectedCoin,setSelectedCoin
   } = useContext(BetContext);
 
-  const [selectedCoin,setSelectedCoin]=useState(null)
+ 
 
   // const points = [50, 100, 200, 400];
 

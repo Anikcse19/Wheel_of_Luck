@@ -55,6 +55,7 @@ export function BetContextProvider({ children }) {
   const [winRatio,setWinRatio]=useState(0)
   const [showCustomizeAmountsModal,setShowCustomizeAmountsModal]=useState(false)
   const [betPoints,setBetPoints]=useState([0.25,0.5,5,10])
+  const [selectedCoin,setSelectedCoin]=useState(null)
   const [isBetComplete,setIsBetComplete]=useState({
     value:null,state:false
   })
@@ -145,7 +146,7 @@ export function BetContextProvider({ children }) {
         winRatio,setWinRatio,
         showCustomizeAmountsModal,setShowCustomizeAmountsModal,
         betPoints,setBetPoints,
-        isBetComplete,setIsBetComplete
+        isBetComplete,setIsBetComplete,selectedCoin,setSelectedCoin
       }}>
       {children}
     </BetContext.Provider>

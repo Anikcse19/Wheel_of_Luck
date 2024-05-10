@@ -31,7 +31,7 @@ const Wheel = () => {
     setSelectedColorButton,
     setShowWinningNumberModal,
     selectedColorButton,
-    totalWin,winRatio
+    totalWin,winRatio,setSelectedCoin
   } = useContext(BetContext);
 
   const segments = ["0", "9", "8", "7", "6", "5", "4", "3", "2", "1"];
@@ -83,6 +83,7 @@ const Wheel = () => {
     setIsTimesUp(false);
     stopSpinner.current = false;
     setSelectedColorButton([])
+    setSelectedCoin(null)
 
     let selectedNumber = localStorage.getItem("selectedNumber");
 
