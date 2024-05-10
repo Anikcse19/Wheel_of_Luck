@@ -33,7 +33,7 @@ const SmallDeviceSetup = () => {
           </div>
         </div>
 
-        <div className="flex flex-col lg:flex-row items-center justify-between mt-12">
+        <div className="flex flex-col lg:flex-row items-center  lg:mt-12">
           <div className="relative">
             <Wheel />
             {/* {gameLost && showModal && <LostModal />}
@@ -42,7 +42,7 @@ const SmallDeviceSetup = () => {
           {showWinningNumberModal && <WinningNumberModal />} */}
           </div>
           <div className="flex flex-col gap-y-16">
-            <div className="my-4 lg:my-0 ">
+            <div className=" lg:my-0 ">
               <NumberBoxs />
             </div>
             <div className="hidden lg:block">
