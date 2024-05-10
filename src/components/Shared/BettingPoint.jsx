@@ -101,7 +101,7 @@ const BettingPoint = () => {
         setSelectedCoin(index)
        
         toast.success(`Amount Selected ${clickedPoint}`, {
-          position: "bottom-right",
+          position: "top-right",
           id: "bet_amount",
         });
       } else {
@@ -109,13 +109,13 @@ const BettingPoint = () => {
         toast.error("unsufficient Balance", {
           id: "unsufficient",
           duration: 1000,
-          position: "bottom-right",
+          position: "top-right",
         });
       }
     } else {
       toast.error("Unable to select money.Please Wait", {
         id: "unable select",
-        position: "bottom-right",
+        position: "top-right",
       });
     }
   };
