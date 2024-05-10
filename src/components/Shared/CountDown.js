@@ -63,9 +63,9 @@ const CountDown = () => {
             backgroundColor: "#FF9200",
             opacity:"10",
             color: "black",
-            fontWeight:"700",
-           
+            fontWeight:"700",    
             boxShadow: "rgb(38, 57, 77) 0px 20px 30px -10px",
+            width:"fit-content"
            
           },
         });
