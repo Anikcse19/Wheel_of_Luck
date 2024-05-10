@@ -183,7 +183,7 @@ const BettingPoint = () => {
 
             <span
               onClick={() => setShowCustomizeAmountsModal(true)}
-              className="text-white cursor-pointer flex justify-center items-center bg-slate-700 p-3 rounded-full"
+              className="text-white cursor-pointer flex justify-center items-center bg-slate-700 text-[10px] p-1 md:p-3 rounded-full"
             >
               <FaEdit />
             </span>
@@ -222,7 +222,7 @@ const BettingPoint = () => {
 
             <span
               onClick={() => setShowCustomizeAmountsModal(true)}
-              className="text-white cursor-pointer flex justify-center items-center bg-slate-700 p-3 rounded-full"
+              className="text-white cursor-pointer flex justify-center items-center bg-slate-700 text-[10px] p-1 md:p-3 rounded-full"
             >
               <FaEdit />
             </span>
@@ -260,7 +260,7 @@ const BettingPoint = () => {
 
             <span
               onClick={() => setShowCustomizeAmountsModal(true)}
-              className="text-white cursor-pointer flex justify-center items-center bg-slate-700 p-3 rounded-full"
+              className="text-white  cursor-pointer flex justify-center items-center bg-slate-700 text-[10px] p-1 md:p-3 rounded-full"
             >
               <FaEdit />
             </span>
@@ -298,7 +298,7 @@ const BettingPoint = () => {
 
             <span
               onClick={() => setShowCustomizeAmountsModal(true)}
-              className="text-white cursor-pointer flex justify-center items-center bg-slate-700 p-3 rounded-full"
+              className="text-white cursor-pointer flex justify-center items-center bg-slate-700 text-[10px] p-1 md:p-3 rounded-full"
             >
               <FaEdit />
             </span>

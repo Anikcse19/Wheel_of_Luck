@@ -92,7 +92,7 @@ const NumberBoxs = () => {
           onMouseLeave={() => setIsHoverOnShade(false)}
           className={`${
             isHoverOnShade && "bg-black"
-          } opacity-[.7] w-full h-full py-4 p-12 rounded-md flex justify-center items-center absolute  overflow-hidden z-[10000]`}
+          } opacity-[.7] w-full h-full py-4 p-12 rounded-md flex justify-center items-center absolute  overflow-hidden z-[10000] mb-3`}
         >
           {isHoverOnShade && (
             <div className=" my-2 px-3 py-2 xl:px-12 xl:py-6 xl:px-24 xl:py-12 flex flex-col justify-center items-center ">
@@ -151,7 +151,7 @@ const NumberBoxs = () => {
                 return btn.id === index && btn.value;
               })
                 ? `w-16 h-16 md:w-[175px]  md:h-[75px] xl:w-[111.905px] xl:h-[102.313px] rounded-[5px] border-1 border-black  text-center flex justify-center items-center  mr-0 cursor-pointer transition-all duration-300 shadow-2xl relative`
-                : "w-16 h-16 md:w-[175px] md:h-[75px] xl:w-[111.905px] xl:h-[111.313px]  rounded-[5px] border-1 border-black  text-center flex justify-center items-center  mr-0 cursor-pointer relative "
+                : "w-16 h-16 md:w-[175px] md:h-[75px] xl:w-[111.905px] xl:h-[102.313px]  rounded-[5px] border-1 border-black  text-center flex justify-center items-center  mr-0 cursor-pointer relative "
             }
           >
             {isBetComplete.value === index && isBetComplete.status ? (

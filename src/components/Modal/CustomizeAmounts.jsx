@@ -31,7 +31,7 @@ const CustomizeAmounts = () => {
   }
   return (
     <div>
-      <div className="absolute -top-60 right-8 xl:top-0 xl:right-44 z-[100] bg-cyan-900 rounded-lg p-5 shadow-2xl w-[80%]">
+      <div className="absolute -top-60 right-8 xl:top-0 xl:right-44 z-[2000000] overflow-hidden bg-cyan-900 rounded-lg p-5 shadow-2xl w-[80%]">
         <div className="text-center">
           <span className="text-white font-bold text-base md:text-xl xl:text-2xl">Customize Shortcut Coins</span>
         </div>
