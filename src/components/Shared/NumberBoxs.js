@@ -85,7 +85,7 @@ const NumberBoxs = () => {
   });
 
   return (
-    <div className="relative py-5 px-3 grid grid-cols-5 gap-4 md:gap-3 xl:gap-5 lg:mx-12">
+    <div className="relative py-5 px-3 grid grid-cols-5 gap-2 md:gap-3 xl:gap-5 xl:mx-12">
       {isTimesUp && !showInitialModal && (
         <div
           onMouseEnter={() => setIsHoverOnShade(true)}
@@ -95,7 +95,7 @@ const NumberBoxs = () => {
           } opacity-[.7] w-full h-full py-4 p-12 rounded-md flex justify-center items-center absolute  overflow-hidden z-[10000]`}
         >
           {isHoverOnShade && (
-            <div className=" my-2 px-3 py-2 lg:px-12 lg:py-6 xl:px-24 xl:py-12 flex flex-col justify-center items-center ">
+            <div className=" my-2 px-3 py-2 xl:px-12 xl:py-6 xl:px-24 xl:py-12 flex flex-col justify-center items-center ">
               <span className="md:font-bold text-white">
                 <span className="text-base md:text-2xl font-extrabold block text-center text-white">
                   {isBetDone ? "Bet Placed Successfully" : "Time Out!!!"}
@@ -150,8 +150,8 @@ const NumberBoxs = () => {
               selectedColorButton.find((btn) => {
                 return btn.id === index && btn.value;
               })
-                ? `w-16 h-16 md:w-[175px]  md:h-[75px] lg:w-[111.905px] lg:h-[102.313px] rounded-[5px] border-1 border-black  text-center flex justify-center items-center  mr-0 cursor-pointer transition-all duration-300 shadow-2xl relative`
-                : "w-16 h-16 md:w-[175px] md:h-[75px] lg:w-[111.905px] lg:h-[111.313px]  rounded-[5px] border-1 border-black  text-center flex justify-center items-center  mr-0 cursor-pointer relative "
+                ? `w-16 h-16 md:w-[175px]  md:h-[75px] xl:w-[111.905px] xl:h-[102.313px] rounded-[5px] border-1 border-black  text-center flex justify-center items-center  mr-0 cursor-pointer transition-all duration-300 shadow-2xl relative`
+                : "w-16 h-16 md:w-[175px] md:h-[75px] xl:w-[111.905px] xl:h-[111.313px]  rounded-[5px] border-1 border-black  text-center flex justify-center items-center  mr-0 cursor-pointer relative "
             }
           >
             {isBetComplete.value === index && isBetComplete.status ? (
@@ -181,7 +181,7 @@ const NumberBoxs = () => {
                 {selectedColorButton.find((btn) => {
                   return btn.id === index && btn.value;
                 }) && (
-                  <div className="absolute -top-3 -right-2 lg:-top-6 lg:-right-5 text-xl md:text-2xl lg:text-5xl text-black font-extrabold">
+                  <div className="absolute -top-3 -right-2 xl:-top-6 xl:-right-5 text-xl md:text-2xl xl:text-5xl text-black font-extrabold">
                     <TiPin />
                   </div>
                 )}
@@ -194,7 +194,7 @@ const NumberBoxs = () => {
                       boxShadow:
                         " rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset",
                     }}
-                    className="absolute flex  items-center gap-1 bg-rose-700 shadow-2xl w-8 h-8 md:w-10 md:h-10 md:p-1 -bottom-1 -right-1 lg:-bottom-3 lg:-right-3 text-white text-[8px] md:text-[10px] font-bold rounded-full "
+                    className="absolute flex  items-center gap-1 bg-rose-700 shadow-2xl w-8 h-8 md:w-10 md:h-10 md:p-1 -bottom-1 -right-1 xl:-bottom-3 xl:-right-3 text-white text-[8px] md:text-[10px] font-bold rounded-full "
                   >
                     <FaCoins className="text-orange-400" />
                     <span>

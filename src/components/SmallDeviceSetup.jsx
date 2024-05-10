@@ -25,15 +25,15 @@ const SmallDeviceSetup = () => {
       >
         <Header />
         <div className="flex items-center gap-2">
-          <div className="block lg:hidden w-[50%]">
+          <div className="block xl:hidden w-[50%]">
             <PlayWinBox />
           </div>
-          <div className="w-[50%] block lg:hidden">
+          <div className="w-[50%] block xl:hidden">
             <WinningNumberModal />
           </div>
         </div>
 
-        <div className="flex flex-col lg:flex-row items-center  lg:mt-12">
+        <div className="flex flex-col xl:flex-row items-center xl:justify-between  xl:mt-5">
           <div className="relative">
             <Wheel />
             {/* {gameLost && showModal && <LostModal />}
@@ -42,18 +42,18 @@ const SmallDeviceSetup = () => {
           {showWinningNumberModal && <WinningNumberModal />} */}
           </div>
           <div className="flex flex-col gap-y-16">
-            <div className=" lg:my-0 ">
+            <div className="">
               <NumberBoxs />
             </div>
-            <div className="hidden lg:block">
+            <div className="hidden xl:block">
               <PointAndButton />
             </div>
           </div>
         </div>
-        <div className="block lg:hidden">
+        <div className="block xl:hidden">
           <PointAndButton />
         </div>
-        <div className="hidden lg:block w-[30%] mx-auto mt-5 mb-12">
+        <div className="hidden xl:block w-[30%] mx-auto mt-5 mb-12">
             <PlayWinBox />
           </div>
 

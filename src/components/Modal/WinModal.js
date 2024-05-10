@@ -9,7 +9,7 @@ const WinModal = () => {
   //   audio.play();
   // }, []);
   return (
-    <div className="flex flex-col justify-center items-center absolute left-6  top-20 md:bottom-0 md:left-24 lg:right-0 ">
+    <div className="flex flex-col justify-center items-center absolute left-6  top-20 md:bottom-0 md:left-24 xl:right-0 ">
       <div
         style={{ boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px" }}
         className="bg-green-600 text-white text-2xl px-24 py-8 rounded">

@@ -31,13 +31,13 @@ const CustomizeAmounts = () => {
   }
   return (
     <div>
-      <div className="absolute -top-60 right-8 lg:top-0 lg:right-44 z-[100] bg-cyan-900 rounded-lg p-5 shadow-2xl w-[80%]">
+      <div className="absolute -top-60 right-8 xl:top-0 xl:right-44 z-[100] bg-cyan-900 rounded-lg p-5 shadow-2xl w-[80%]">
         <div className="text-center">
-          <span className="text-white font-bold text-base md:text-xl lg:text-2xl">Customize Shortcut Coins</span>
+          <span className="text-white font-bold text-base md:text-xl xl:text-2xl">Customize Shortcut Coins</span>
         </div>
 
         {/* exists points */}
-        <div className="my-10 w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
+        <div className="my-10 w-full grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-2">
           {/* points 1 */}
           <div className="w-full flex flex-col flex-wrap md:flex-nowrap items-center justify-around gap-3 mb-2">
             <span className="text-white font-bold bg-black p-3 rounded-full">C {pointsIndex[0]}</span>

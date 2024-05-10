@@ -92,16 +92,16 @@ const Header = () => {
         <div className="">
           <CountDown />
         </div>
-        <div className="hidden lg:block ">
+        <div className="hidden xl:block ">
           <WinningNumberModal/>
         </div>
 
-        <div className="hidden lg:block">
+        <div className="hidden xl:block">
           <History />
         </div>
       </div>
 
-      <div className="block lg:hidden">
+      <div className="block xl:hidden">
         <History />
       </div>
     </div>

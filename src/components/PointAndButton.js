@@ -3,7 +3,7 @@ import BettingPoint from "./Shared/BettingPoint";
 
 const PointAndButton = () => {
   return (
-    <div className="bg-[#FF9900] flex justify-center lg:items-center lg:bg-transparent mx-3 py-2 lg:p-0 rounded-md lg:rounded-none shadow-2xl lg:shadow-none">
+    <div className="bg-[#FF9900] flex justify-center xl:items-center  mx-3 py-2 xl:py-5 rounded-md  shadow-2xl ">
       <BettingPoint />
     </div>
   );

@@ -8,7 +8,7 @@ const LargeScreenSetup = () => {
     <>
       <Header/>
       <div className="">
-        <div className="relative lg:mt-12">
+        <div className="relative xl:mt-12">
           <WheelForLargeDevice/>
         </div>
         <div>
