@@ -150,8 +150,8 @@ const BettingPoint = () => {
 
   return (
     <>
-      <div className="flex flex-col  xl:w-[400px] xl:w-[702px]  gap-5">
-        <div className="w-[100%]  justify-center flex flex-wrap items-center gap-5 relative">
+      <div className="flex flex-col  xl:w-[400px] xl:w-[702px]  gap-3">
+        <div className="w-[100%]  justify-center flex items-center gap-2 relative">
 
           {/* coin 1 start */}
           <div className="flex flex-col gap-3 items-center ">
@@ -170,7 +170,7 @@ const BettingPoint = () => {
                   backgroundPosition: 'center',
                   backgroundSize:'cover'
               }}
-              className={`${selectedCoin === 0 && "pulse t w-[80px] h-[80px] md:w-[120px] md:h-[120px] xl:w-[150px]  xl:h-[150px]"} w-[50px] h-[50px] md:w-[100px] md:h-[100px] xl:w-[120px]  xl:h-[120px]  rounded-full   flex justify-center items-center cursor-pointer`}
+              className={`${selectedCoin === 0 && "pulse w-[85px] h-[85px] md:w-[120px] md:h-[120px] xl:w-[150px]  xl:h-[150px]"} w-[60px] h-[60px] md:w-[100px] md:h-[100px] xl:w-[120px]  xl:h-[120px]  rounded-full   flex justify-center items-center cursor-pointer`}
             >
               <div
                     id="bet-point"
@@ -208,7 +208,7 @@ const BettingPoint = () => {
                   backgroundSize:'cover'
                   
               }}
-              className={`${selectedCoin === 1 && "pulse w-[80px] h-[80px] md:w-[120px] md:h-[120px] xl:w-[150px]  xl:h-[150px]"} w-[50px] h-[50px] md:w-[100px] md:h-[100px] xl:w-[120px]  xl:h-[120px]  rounded-full   flex justify-center items-center cursor-pointer`}
+              className={`${selectedCoin === 1 && "pulse w-[85px] h-[85px] md:w-[120px] md:h-[120px] xl:w-[150px]  xl:h-[150px]"} w-[60px] h-[60px] md:w-[100px] md:h-[100px] xl:w-[120px]  xl:h-[120px]  rounded-full   flex justify-center items-center cursor-pointer`}
             >
               <div
                    
@@ -246,7 +246,7 @@ const BettingPoint = () => {
                   backgroundPosition: 'center',
                   backgroundSize:'cover'
               }}
-              className={`${selectedCoin === 2 && "pulse w-[80px] h-[80px] md:w-[120px] md:h-[120px] xl:w-[150px]  xl:h-[150px]"} w-[50px] h-[50px] md:w-[100px] md:h-[100px] xl:w-[120px]  xl:h-[120px]  rounded-full   flex justify-center items-center cursor-pointer`}
+              className={`${selectedCoin === 2 && "pulse w-[85px] h-[85px] md:w-[120px] md:h-[120px] xl:w-[150px]  xl:h-[150px]"} w-[60px] h-[60px] md:w-[100px] md:h-[100px] xl:w-[120px]  xl:h-[120px]  rounded-full   flex justify-center items-center cursor-pointer`}
             >
               <div
                    
@@ -284,7 +284,7 @@ const BettingPoint = () => {
                   backgroundPosition: 'center',
                   backgroundSize:'cover'
               }}
-              className={`${selectedCoin === 3 && "pulse w-[80px] h-[80px] md:w-[120px] md:h-[120px] xl:w-[150px]  xl:h-[150px]"} w-[50px] h-[50px] md:w-[100px] md:h-[100px] xl:w-[120px]  xl:h-[120px]  rounded-full   flex justify-center items-center cursor-pointer ` }
+              className={`${selectedCoin === 3 && "pulse w-[85px] h-[85px] md:w-[120px] md:h-[120px] xl:w-[150px]  xl:h-[150px]"} w-[60px] h-[60px] md:w-[100px] md:h-[100px] xl:w-[120px]  xl:h-[120px]  rounded-full   flex justify-center items-center cursor-pointer ` }
             >
               <div
                    
