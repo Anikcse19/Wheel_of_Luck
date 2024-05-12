@@ -55,6 +55,7 @@ const HomePage = () => {
 
     setHistory(window.initialBettingHistory);
     setCurrentTime(window.initialBettingTime);
+    setWinningNumber2(window.initialBettingHistory[6])
     try {
       axios({
         url: url,
@@ -74,6 +75,7 @@ const HomePage = () => {
         const seconds = nTime.getSeconds();
         const q = minutes * 60 + seconds;
         const diff = q - p;
+        
 
         //set user balance
         setUserBalance(res?.data?.balance);
@@ -97,7 +99,9 @@ const HomePage = () => {
 
           setIsBetDone(true);
           setIsTimesUp(true);
+          
           if (diff >= 20) {
+            
             setIsSpin(false);
             setIsTimerStart(true);
             setTotalDuration(10);
@@ -131,13 +135,15 @@ const HomePage = () => {
 
   useEffect(() => {
     // private channel subscribed
-    echo
+    try {
+      echo
       .private(`UPDATE_USER_STATE_${window.user.id}`)
       .listen("UpdateUserStateEvent", (event) => {
         setUserBalance(event.balance);
         setTotalWin(event.total_win);
       });
-    //public channel subscribed
+
+       //public channel subscribed
     echo.channel("GLOBAL_STATE_CHANNEL").listen("SpinEvent", (event) => {
       globalStateUpdate(
         event,
@@ -178,6 +184,12 @@ const HomePage = () => {
         setCurrentTime(tempCurrentTime.reverse());
       }
     });
+    } catch (error) {
+      toast.error(`${error}`,{
+        position:'top-right'
+      })
+    }
+   
   }, []);
 
   return (

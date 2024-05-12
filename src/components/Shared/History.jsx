@@ -11,8 +11,9 @@ const History = () => {
     </div>
     <div className="flex-grow bg-[#FF9900] flex justify-evenly items-center gap-1 lg:gap-2 px-1 xl:px-5 py-1 xl:py-3 rounded-md">
       {
-        history?.map(h=>(
+        history?.map((h,i)=>(
           <span
+          key={i}
           style={{
             boxShadow: "rgba(0, 0, 0, .8) 0px 5px 15px",
             
